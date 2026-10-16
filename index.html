@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kewirausahaan Kreatif: Dari Peluang ke Studi Kelayakan - SMK Negeri 1 Jabon</title>
+    <link id="app-favicon" rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5 L90 25 L80 80 L50 95 L20 80 L10 25 Z' fill='%231F5C8B'/></svg>">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#1F5C8B',
+                        brandLight: '#DDEBF7',
+                        brandAccent: '#F29B4B',
+                        brandBg: '#F6F4EE',
+                        brandText: '#1E2A38',
+                        brandCyan: '#22d3ee'
+                    },
+                    fontFamily: {
+                        rubik: ['Rubik', 'sans-serif'],
+                        nunito: ['Nunito Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F6F4EE;
+            color: #1E2A38;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 16px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Rubik', sans-serif;
+        }
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white; color: black; font-size: 12pt; }
+            .card-print { border: 1px solid #ccc; box-shadow: none; page-break-inside: avoid; }
+        }
+        .print-only { display: none; }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-brandAccent selection:text-brandText">
+
+    <script>
+        // STRICT LOGO CONSTANT: Dikosongkan sesuai instruksi. Jangan diubah/diisi base64.
+        const LOGO_SRC = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALAAAACoCAMAAAB37JSaAAAAwFBMVEX////0///v/0r//wn//wH+/wP7/wP4/Df9/AHu74HZ2aG7912P63vExaFp14g3z7YYy+kbwuMJ0f0Mzv0LzPkIyf0Lyu8Lx/QB0f0Bz/wBzv4BzvkCzf4Azf4BzfoCzP8AzP8CzP4AzP4AzP0CzPoEy/4Cy/8By/8Dyv8Dyf8Cy/sDyfqwr5Bxmo4astgYmbt/f11eX0MVf5wTXnM3QzIpLiAGPE0CKzsbHBkEHiUIDA4DAwUIAAYAAAwAAAAAAAAuUeSYAAAAQHRSTlP///////////////////////////////////////////////////////////////////////////////////8AwnuxRAAALFNJREFUeNrVXYlC20i2NRgww2bLUslSlfaq0greN2xg/v+v3rklA05CQpJO5s2oO+kE2/LRrXPPXWrpzr//x67O37ntar9f/S8B3j69vLxs/2cAL3cvu/Uavy3/NwCvnl8e55a1eNw/rf4XAG9f9uvJSKvRZL3/C7To/AU6LMbDaMQqe7z4C7To/HFv28wHge9LXVV6MN+8PG3/iwEvd8+79cRmIih4JHVe2JP18x828p8EvNq/PC7GdsVUaLuuUyhRG1r8UUn+g4C3z8+gA5O8aZzJGshZEDQCtHj+k77X+ZPeth7bjai1N5pvNuv13GUsy53BeLHf/zla/CnAyz2Jr50ETcHGi81iPKHfbN/nmQ1Jftkv/7sAt+KrRFAxONpmbnnKnW/ggGGgFMeP9vvtfxHgVnztWvDGtuaPgM4a5Y8McltpJv+gJP8JwNs9iS9jOq6c8eJxYQ1FwZpIm7+A1poJgef4M5Lc+RPmfaZYzFij7ckG0LWUaVUxFpFEbCZ2oZtIQjheXnb/BYCN+FrDSvsR6LCBULBRUTQqZbKoA3tMtGBZwSJDi3+eDnX+MR1IfHWtMzFo6dAEodSJwKVD4ToWqYWbVloxqN3z8/b/FfCMxHdiS5aK4Qh0mDgskrFWkitdpGUV+g1z6OcuK4Oa4sluv/t/BLwy4uuKqKIYTA6WcZklcZIkWZJlcRxyLhvb6DIyjEgNKUverf6/ABvxHYyUX7FWwiDEaZYldGVZFuZlGWcchrWMJLMipT+un/+RJHf+ofg6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";
+
+        // Global State App
+        const state = {
+            studentName: '',
+            studentTeam: '',
+            currentModule: 0,
+            initialAssessmentAnswers: Array(5).fill(null),
+            swotData: { S: [], W: [], O: [], T: [] },
+            swotStrategies: { SO: '', WO: '', ST: '', WT: '' },
+            w5h1Data: { what: '', why: '', when: '', where: '', who: '', how: '' },
+            
+            // Quiz State (20 pool questions, 10 active)
+            activeQuizQuestions: [],
+            quizAnswers: Array(10).fill(null),
+            quizCurrentIdx: 0,
+
+            // Case Study Module 6 State
+            caseStudyAnswers: {
+                swot: { S: '', W: '', O: '', T: '' },
+                calc: {
+                    investasi: '', penyusutan: '', biayaTetap: '', biayaVariabel: '',
+                    operasional: '', penerimaan: '', laba: '', payback: ''
+                },
+                scenarioCalc: { laba: '', payback: '' },
+                decision: 'layak',
+                reason: '',
+                score: 0
+            },
+            
+            // Reflection Module 7 State
+            reflection: {
+                scores: [4, 4, 4, 4, 4],
+                feeling: 'tertantang dan antusias',
+                meaningful: '',
+                struggle: '',
+                commitment: ''
+            }
+        };
+
+        // Standard Default Pentagon Logo SVG Generator for SMKN 1 Jabon
+        function getDefaultLogoSVG() {
+            return `<svg class="w-full h-full max-h-full max-w-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo SMK Negeri 1 Jabon">
+                <path d="M50 5 L90 25 L80 80 L50 95 L20 80 L10 25 Z" fill="#1F5C8B" stroke="#F29B4B" stroke-width="3"/>
+                <circle cx="50" cy="45" r="22" fill="#22d3ee" opacity="0.3"/>
+                <path d="M50 28 L56 40 L69 42 L60 51 L62 64 L50 58 L38 64 L40 51 L31 42 L44 40 Z" fill="#F29B4B"/>
+                <text x="50" y="82" font-family="Rubik, sans-serif" font-weight="bold" font-size="8.5" fill="#FFFFFF" text-anchor="middle">SMKN 1 JABON</text>
+            </svg>`;
+        }
+
+        function setLogo(src) {
+            const logoContainers = document.querySelectorAll('.logo-sekolah-container');
+            const favicon = document.getElementById('app-favicon');
+
+            logoContainers.forEach(container => {
+                if (src && src.trim() !== "") {
+                    container.innerHTML = `<img src="${src}" alt="Logo SMK Negeri 1 Jabon" class="logo-sekolah max-h-full max-w-full object-contain mx-auto" />`;
+                } else {
+                    container.innerHTML = getDefaultLogoSVG();
+                }
+            });
+
+            if (favicon && src && src.trim() !== "") {
+                favicon.href = src;
+            }
+        }
+    </script>
+
+    <header class="no-print bg-brandDark text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="logo-sekolah-container w-10 h-10 flex-shrink-0 bg-white/10 p-1 rounded-lg flex items-center justify-center">
+                    <!-- SVG Fallback / Logo rendered by setLogo() -->
+                </div>
+                <div>
+                    <h1 class="text-base md:text-lg font-bold font-rubik leading-tight text-white">SMK Negeri 1 Jabon</h1>
+                    <p class="text-xs text-brandLight opacity-90 hidden sm:block">MPI KIK Kelas XI DKV - Kewirausahaan Kreatif</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-2">
+                <span id="header-user-badge" class="hidden md:inline-block text-xs bg-white/10 px-3 py-1.5 rounded-full font-semibold border border-white/20">
+                    Siswa: <span id="nav-student-name" class="text-brandAccent">Tamu</span>
+                </span>
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-white hover:bg-white/10 rounded-lg focus:ring-2 focus:ring-brandAccent" aria-label="Buka Menu Navigasi">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Overall Progress Bar -->
+        <div class="w-full bg-black/20 h-2">
+            <div id="overall-progress-bar" class="bg-brandAccent h-2 transition-all duration-300 w-0"></div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Navigation Drawer -->
+    <div id="mobile-menu" class="no-print fixed inset-0 z-50 bg-black/50 hidden flex justify-end" onclick="toggleMobileMenu()">
+        <div class="w-4/5 max-w-xs bg-white h-full shadow-2xl p-5 flex flex-col justify-between overflow-y-auto" onclick="event.stopPropagation()">
+            <div>
+                <div class="flex items-center justify-between pb-4 mb-4 border-b">
+                    <div class="flex items-center gap-2">
+                        <div class="logo-sekolah-container w-7 h-7"></div>
+                        <h2 class="font-bold text-brandDark font-rubik text-sm">Navigasi Modul</h2>
+                    </div>
+                    <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-red-500 font-bold p-1">✕</button>
+                </div>
+                <nav class="space-y-2 text-sm font-semibold" id="mobile-nav-list"></nav>
+            </div>
+            <div class="pt-4 border-t text-xs text-gray-500 text-center">
+                MPI KIK XI DKV © SMKN 1 Jabon
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full flex flex-col md:flex-row gap-6">
+        
+        <!-- Desktop Sidebar Menu -->
+        <aside class="no-print hidden md:block w-64 flex-shrink-0">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200/80 p-4 sticky top-20">
+                <h2 class="text-xs font-bold font-rubik text-gray-400 uppercase tracking-wider mb-3 px-2">Daftar Modul MPI</h2>
+                <nav class="space-y-1.5 text-sm font-semibold" id="desktop-nav-list"></nav>
+            </div>
+        </aside>
+
+        <!-- Main Workspace Canvas -->
+        <main class="flex-grow w-full min-w-0" id="main-content">
+            
+            <!-- MODUL 0: BERANDA -->
+            <section id="module-0" class="module-section space-y-6">
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200/80 text-center space-y-6">
+                    
+                    <!-- Large Branding Logo -->
+                    <div class="w-24 h-24 md:w-28 md:h-28 mx-auto logo-sekolah-container bg-gray-50 p-2 rounded-2xl border flex items-center justify-center"></div>
+                    
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-brandLight text-brandDark rounded-full text-xs font-bold uppercase tracking-wider mb-2">MPI Kewirausahaan Kreatif</span>
+                        <h2 class="text-2xl md:text-3xl font-extrabold font-rubik text-brandDark">Kewirausahaan Kreatif: Dari Peluang ke Studi Kelayakan</h2>
+                        <p class="text-sm md:text-base text-gray-600 font-semibold mt-2">SMK Negeri 1 Jabon - Sidoarjo | Kelas XI DKV (Fase F)</p>
+                        <p class="text-xs text-gray-500 mt-1">Disusun oleh: Masitah Zulfiah, S.Kom</p>
+                    </div>
+
+                    <!-- Form Input Identity -->
+                    <div class="bg-brandLight/50 p-5 rounded-xl border border-brandLight max-w-lg mx-auto text-left space-y-4">
+                        <h3 class="font-bold text-brandDark font-rubik text-sm uppercase">Identitas Belajar Siswa</h3>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1" for="input-student-name">Nama Lengkap Siswa *</label>
+                            <input type="text" id="input-student-name" placeholder="Masukkan nama lengkapmu" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandDark focus:outline-none text-sm font-semibold" oninput="updateStudentIdentity()">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1" for="input-student-team">Nama Tim / Kelompok *</label>
+                            <input type="text" id="input-student-team" placeholder="Contoh: Tim DKV Creative Studio" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandDark focus:outline-none text-sm font-semibold" oninput="updateStudentIdentity()">
+                        </div>
+                    </div>
+
+                    <div class="text-left space-y-3 bg-gray-50 p-5 rounded-xl border">
+                        <h3 class="font-bold text-brandDark font-rubik">Tujuan Pembelajaran (Fase F - DKV):</h3>
+                        <ul class="text-sm space-y-2 text-gray-700 list-disc list-inside">
+                            <li>Menjelaskan konsep, perilaku, dan 4 tahapan wirausaha secara mendalam.</li>
+                            <li>Mengklasifikasikan produk barang/jasa serta mengidentifikasi tingkat kebutuhan konsumen.</li>
+                            <li>Menganalisis peluang usaha berbasis SWOT, 5W+1H, dan Porter's Five Forces.</li>
+                            <li>Menyusun studi kelayakan usaha sederhana (biaya investasi, operasional, laba, dan payback period).</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="goToModule(1)" class="w-full sm:w-auto px-8 py-3.5 bg-brandAccent text-brandText font-bold rounded-xl shadow-md hover:brightness-105 transition font-rubik text-lg">
+                        Mulai Belajar Sekarang ➔
+                    </button>
+                </div>
+
+                <!-- Modul Card Overview Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-white p-5 rounded-xl border hover:shadow-md transition">
+                        <span class="text-2xl mb-2 block">💡</span>
+                        <h4 class="font-bold text-brandDark font-rubik">Modul 1: Apersepsi</h4>
+                        <p class="text-xs text-gray-600 mt-1">Skenario studi kasus Dita vs Raka dan refleksi kesadaran awal.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border hover:shadow-md transition">
+                        <span class="text-2xl mb-2 block">📋</span>
+                        <h4 class="font-bold text-brandDark font-rubik">Modul 2: Asesmen Awal</h4>
+                        <p class="text-xs text-gray-600 mt-1">Diagnostik 5 soal untuk memetakan pemahaman awal topik.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border hover:shadow-md transition">
+                        <span class="text-2xl mb-2 block">📖</span>
+                        <h4 class="font-bold text-brandDark font-rubik">Modul 3: Materi Pokok</h4>
+                        <p class="text-xs text-gray-600 mt-1">4 Tab Materi Interaktif + Game Pengelompokan & SWOT Builder.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border hover:shadow-md transition">
+                        <span class="text-2xl mb-2 block">🧪</span>
+                        <h4 class="font-bold text-brandDark font-rubik">Modul 4: Lab Kelayakan</h4>
+                        <p class="text-xs text-gray-600 mt-1">Simulasi interaktif Soto Winne, Jasa Desain, dan Usaha Bebas Tim.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border hover:shadow-md transition">
+                        <span class="text-2xl mb-2 block">✍️</span>
+                        <h4 class="font-bold text-brandDark font-rubik">Modul 5: Kuis Penguatan</h4>
+                        <p class="text-xs text-gray-600 mt-1">10 Soal evaluasi acak dari bank 20 soal berumpan balik instan.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border hover:shadow-md transition">
+                        <span class="text-2xl mb-2 block">📸</span>
+                        <h4 class="font-bold text-brandDark font-rubik">Modul 6: Studi Kasus Akhir</h4>
+                        <p class="text-xs text-gray-600 mt-1">Asesmen berbasis studi kasus nyata "Warna Jabon" Stiker & Merchandise.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="module-1" class="module-section space-y-6 hidden">
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200/80 space-y-6">
+                    <div class="border-b pb-4">
+                        <span class="text-xs font-bold text-brandDark uppercase tracking-wider bg-brandLight px-3 py-1 rounded-full">Modul 1</span>
+                        <h2 class="text-2xl font-bold font-rubik text-brandDark mt-2">Apersepsi: Mengapa Riset & Analisis Kelayakan Penting?</h2>
+                    </div>
+
+                    <!-- Story Scenario Box -->
+                    <div class="bg-brandLight/60 p-5 rounded-xl border border-brandLight space-y-3">
+                        <h3 class="font-bold text-brandDark font-rubik flex items-center gap-2 text-base">
+                            <span>📖</span> Skenario Awal: Dita & Raka (Lulusan SMK DKV)
+                        </h3>
+                        <p class="text-sm leading-relaxed text-gray-700">
+                            Dita dan Raka baru saja lulus dari SMK DKV dan bercita-cita membuka usaha kreatif. Masing-masing memiliki modal tabungan sebesar <strong>Rp 13.800.000</strong>.
+                        </p>
+                        <p class="text-sm leading-relaxed text-gray-700">
+                            <strong>Dita</strong> sangat bersemangat. Ia langsung membelanjakan seluruh modalnya untuk membeli peralatan dan memproduksi banyak merchandise karena yakin ide itu pasti laku keras.
+                        </p>
+                        <p class="text-sm leading-relaxed text-gray-700">
+                            <strong>Raka</strong> memilih jalan berbeda. Sebelum membeli alat, ia lebih dulu bertanya kepada calon pelanggan, mengecek pesaing, lalu menghitung biaya operasional dan kapan modalnya bisa kembali.
+                        </p>
+                    </div>
+
+                    <!-- Interactive Choice -->
+                    <div class="space-y-3">
+                        <h4 class="font-bold text-gray-800 text-sm">Jika kamu berada di posisi mereka, apa tindakan pertamamu?</h4>
+                        <div class="space-y-2" id="apperception-options">
+                            <button onclick="checkApperception('A')" class="w-full text-left p-4 rounded-xl border hover:border-brandDark hover:bg-gray-50 font-semibold text-sm transition">
+                                (A) Langsung membeli peralatan dan produksi banyak merchandise agar siap jual.
+                            </button>
+                            <button onclick="checkApperception('B')" class="w-full text-left p-4 rounded-xl border hover:border-brandDark hover:bg-gray-50 font-semibold text-sm transition">
+                                (B) Mengamati kebutuhan, mensurvei calon pelanggan, dan menghitung kelayakan lebih dulu.
+                            </button>
+                            <button onclick="checkApperception('C')" class="w-full text-left p-4 rounded-xl border hover:border-brandDark hover:bg-gray-50 font-semibold text-sm transition">
+                                (C) Menunggu tren lain muncul lalu meniru usaha orang lain.
+                            </button>
+                        </div>
+                        <div id="apperception-feedback" class="hidden p-4 rounded-xl text-sm leading-relaxed font-semibold"></div>
+                    </div>
+
+                    <!-- Apperception Conclusion -->
+                    <div class="p-5 bg-amber-50 border border-amber-200 rounded-xl space-y-2 text-sm text-amber-900">
+                        <h4 class="font-bold flex items-center gap-1 font-rubik">📌 Kesimpulan Utama:</h4>
+                        <p>Seorang wirausahawan sejati perlu mengenali peluang, memperhitungkan risiko, dan melakukan analisis kelayakan sebelum memulai. Optimisme berlebihan tanpa data dapat menimbulkan kerugian modal yang fatal.</p>
+                    </div>
+
+                    <!-- Reflection Questions -->
+                    <div class="space-y-4 pt-4 border-t">
+                        <h4 class="font-bold text-brandDark font-rubik text-base">3 Pertanyaan Refleksi Singkat (Refleksi Mandiri):</h4>
+                        <div class="space-y-3 text-sm">
+                            <div>
+                                <label class="block font-semibold text-gray-700 mb-1" for="ref1">1. Apa risiko terbesar jika seorang wirausaha langsung berproduksi tanpa riset pasar?</label>
+                                <textarea id="ref1" rows="2" class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-brandDark focus:outline-none" placeholder="Tulis refleksimu di sini..."></textarea>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-gray-700 mb-1" for="ref2">2. Mengapa mengetahui kapan modal usaha akan kembali (payback period) itu penting?</label>
+                                <textarea id="ref2" rows="2" class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-brandDark focus:outline-none" placeholder="Tulis refleksimu di sini..."></textarea>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-gray-700 mb-1" for="ref3">3. Karakter atau perilaku wirausaha apa yang menurutmu paling dominan pada diri Raka?</label>
+                                <textarea id="ref3" rows="2" class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-brandDark focus:outline-none" placeholder="Tulis refleksimu di sini..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between pt-4 border-t">
+                        <button onclick="goToModule(0)" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 font-bold rounded-lg text-sm">← Kembali</button>
+                        <button onclick="goToModule(2)" class="px-6 py-2.5 bg-brandAccent text-brandText font-bold rounded-lg text-sm shadow hover:brightness-105">Lanjut: Asesmen Awal ➔</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="module-2" class="module-section space-y-6 hidden">
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200/80 space-y-6">
+                    <div class="border-b pb-4 flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-bold text-brandDark uppercase tracking-wider bg-brandLight px-3 py-1 rounded-full">Modul 2</span>
+                            <h2 class="text-2xl font-bold font-rubik text-brandDark mt-2">Asesmen Awal (Diagnostik)</h2>
+                        </div>
+                        <span id="diagnostic-step-indicator" class="text-xs font-bold bg-brandDark text-white px-3 py-1 rounded-full">Soal 1 dari 5</span>
+                    </div>
+
+                    <p class="text-sm text-gray-600">Jawablah 5 soal diagnostik berikut. Asesmen ini tidak memberikan nilai angka, melainkan memetakan pemahaman per topik ("Paham" / "Perlu Diperkuat").</p>
+
+                    <div id="diagnostic-quiz-container" class="space-y-4 min-h-[220px]">
+                        <!-- Rendered by JS -->
+                    </div>
+
+                    <div id="diagnostic-result-box" class="hidden space-y-4 bg-brandBg p-6 rounded-xl border">
+                        <h3 class="font-bold text-brandDark font-rubik text-lg">Hasil Pemetaan Diagnostik Awalmu:</h3>
+                        <div id="diagnostic-summary-list" class="space-y-2 text-sm font-semibold"></div>
+                        <p class="text-xs text-gray-500 italic">Hasil diagnostik ini digunakan sebagai bahan pembanding pada refleksi akhir modul nanti.</p>
+                    </div>
+
+                    <div class="flex justify-between pt-4 border-t">
+                        <button onclick="goToModule(1)" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 font-bold rounded-lg text-sm">← Kembali</button>
+                        <button id="diagnostic-next-btn" onclick="nextDiagnosticQuestion()" class="px-6 py-2.5 bg-brandAccent text-brandText font-bold rounded-lg text-sm shadow hover:brightness-105">Soal Berikutnya ➔</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="module-3" class="module-section space-y-6 hidden">
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200/80 space-y-6">
+                    <div class="border-b pb-4">
+                        <span class="text-xs font-bold text-brandDark uppercase tracking-wider bg-brandLight px-3 py-1 rounded-full">Modul 3</span>
+                        <h2 class="text-2xl font-bold font-rubik text-brandDark mt-2">Materi Pokok Kewirausahaan Kreatif</h2>
+                    </div>
+
+                    <!-- Module 3 Tabs Header -->
+                    <div class="flex border-b overflow-x-auto space-x-2 text-sm font-bold no-scrollbar">
+                        <button onclick="switchTabM3('tabA')" id="btn-tabA" class="px-4 py-2.5 border-b-2 border-brandDark text-brandDark whitespace-nowrap">Tab A: Konsep Wirausaha</button>
+                        <button onclick="switchTabM3('tabB')" id="btn-tabB" class="px-4 py-2.5 border-b-2 border-transparent text-gray-500 hover:text-brandDark whitespace-nowrap">Tab B: Produk & Kebutuhan</button>
+                        <button onclick="switchTabM3('tabC')" id="btn-tabC" class="px-4 py-2.5 border-b-2 border-transparent text-gray-500 hover:text-brandDark whitespace-nowrap">Tab C: Analisis Peluang Usaha</button>
+                        <button onclick="switchTabM3('tabD')" id="btn-tabD" class="px-4 py-2.5 border-b-2 border-transparent text-gray-500 hover:text-brandDark whitespace-nowrap">Tab D: Studi Kelayakan Usaha</button>
+                    </div>
+
+                    <!-- TAB A CONTENT -->
+                    <div id="content-tabA" class="m3-tab-content space-y-6">
+                        <div class="bg-brandLight/40 p-5 rounded-xl border border-brandLight space-y-2">
+                            <h3 class="font-bold text-brandDark font-rubik text-lg">1. Pengertian Entrepreneur</h3>
+                            <p class="text-sm leading-relaxed text-gray-700">
+                                Wirausahawan (entrepreneur) adalah orang atau sekelompok orang yang mampu menjalankan kegiatan usaha dengan memperhitungkan risikonya. Kewirausahaan berkaitan erat dengan penguasaan ilmu pengetahuan, kreativitas tinggi, jiwa pantang menyerah, keberanian mencoba, dan keterampilan teknis.
+                            </p>
+                        </div>
+
+                        <!-- 4 Flip Cards Behavior -->
+                        <div>
+                            <h3 class="font-bold text-brandDark font-rubik text-base mb-3">2. Empat Perilaku Wirausaha Utama (Klik kartu untuk melihat contoh):</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="flip-card h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                                    <div class="flip-card-inner relative w-full h-full text-center rounded-xl shadow-sm border border-brandDark/20 bg-brandLight p-4 flex flex-col justify-center items-center">
+                                        <div class="flip-card-front absolute inset-0 flex flex-col items-center justify-center p-4 bg-brandLight rounded-xl">
+                                            <span class="text-2xl mb-1">💡</span>
+                                            <h4 class="font-bold text-brandDark font-rubik">1. Berani Berkreasi</h4>
+                                            <p class="text-xs text-gray-500 mt-1">(Klik kartu untuk balik)</p>
+                                        </div>
+                                        <div class="flip-card-back absolute inset-0 flex flex-col items-center justify-center p-4 bg-brandDark text-white rounded-xl">
+                                            <h4 class="font-bold font-rubik text-brandAccent text-sm">Definisi & Contoh</h4>
+                                            <p class="text-xs leading-relaxed mt-1">Kemampuan menciptakan gagasan unik. Contoh: Desainer DKV membuat pola kemasan kustom dari bahan daur ulang yang estetik.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                                    <div class="flip-card-inner relative w-full h-full text-center rounded-xl shadow-sm border border-brandDark/20 bg-brandLight p-4 flex flex-col justify-center items-center">
+                                        <div class="flip-card-front absolute inset-0 flex flex-col items-center justify-center p-4 bg-brandLight rounded-xl">
+                                            <span class="text-2xl mb-1">🎯</span>
+                                            <h4 class="font-bold text-brandDark font-rubik">2. Berani Mengambil Risiko</h4>
+                                            <p class="text-xs text-gray-500 mt-1">(Klik kartu untuk balik)</p>
+                                        </div>
+                                        <div class="flip-card-back absolute inset-0 flex flex-col items-center justify-center p-4 bg-brandDark text-white rounded-xl">
+                                            <h4 class="font-bold font-rubik text-brandAccent text-sm">Definisi & Contoh</h4>
+                                            <p class="text-xs leading-relaxed mt-1">Siap menghadapi kemungkinan rugi terukur. Contoh: Membeli mesin cetak baru dengan perhitungan matang risiko pasarnya.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                                    <div class="flip-card-inner relative w-full h-full text-center rounded-xl shadow-sm border border-brandDark/20 bg-brandLight p-4 flex flex-col justify-center items-center">
+                                        <div class="flip-card-front absolute inset-0 flex flex-col items-center justify-center p-4 bg-brandLight rounded-xl">
+                                            <span class="text-2xl mb-1">⏱️</span>
+                                            <h4 class="font-bold text-brandDark font-rubik">3. Disiplin</h4>
+                                            <p class="text-xs text-gray-500 mt-1">(Klik kartu untuk balik)</p>
+                                        </div>
+                                        <div class="flip-card-back absolute inset-0 flex flex-col items-center justify-center p-4 bg-brandDark text-white rounded-xl">
+                                            <h4 class="font-bold font-rubik text-brandAccent text-sm">Definisi & Contoh</h4>
+                                            <p class="text-xs leading-relaxed mt-1">Konsisten pada waktu dan kualitas. Contoh: Menyerahkan karya desain logo tepat deadline sesuai janji kepada pemesan.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card h-40 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                                    <div class="flip-card-inner relative w-full h-full text-center rounded-xl shadow-sm border border-brandDark/20 bg-brandLight p-4 flex flex-col justify-center items-center">
+                                        <div class="flip-card-front absolute inset-0 flex flex-col items-center justify-center p-4 bg-brandLight rounded-xl">
+                                            <span class="text-2xl mb-1">🚀</span>
+                                            <h4 class="font-bold text-brandDark font-rubik">4. Kreatif & Inovatif</h4>
+                                            <p class="text-xs text-gray-500 mt-1">(Klik kartu untuk balik)</p>
+                                        </div>
+                                        <div class="flip-card-back absolute inset-0 flex flex-col items-center justify-center p-4 bg-brandDark text-white rounded-xl">
+                                            <h4 class="font-bold font-rubik text-brandAccent text-sm">Definisi & Contoh</h4>
+                                            <p class="text-xs leading-relaxed mt-1">Mengembangkan solusi baru. Contoh: Menggabungkan animasi 2D dengan cetak augmented reality (AR) pada kaos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4 Tahapan Wirausaha Stepper -->
+                        <div class="space-y-3">
+                            <h3 class="font-bold text-brandDark font-rubik text-base">3. Tahapan Wirausaha (4 Langkah):</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-sm">
+                                <div class="bg-gray-50 p-4 rounded-xl border border-brandDark/20 border-l-4 border-l-brandDark">
+                                    <span class="font-bold text-brandDark block font-rubik">1. Memulai</span>
+                                    <p class="text-xs text-gray-600 mt-1">Persiapan awal dan analisis peluang usaha.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl border border-brandDark/20 border-l-4 border-l-brandDark">
+                                    <span class="font-bold text-brandDark block font-rubik">2. Pelaksanaan Usaha</span>
+                                    <p class="text-xs text-gray-600 mt-1">Mengelola SDM, keuangan, dan produksi.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl border border-brandDark/20 border-l-4 border-l-brandDark">
+                                    <span class="font-bold text-brandDark block font-rubik">3. Mempertahankan</span>
+                                    <p class="text-xs text-gray-600 mt-1">Evaluasi hasil dan menjaga kualitas layanan.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl border border-brandDark/20 border-l-4 border-l-brandDark">
+                                    <span class="font-bold text-brandDark block font-rubik">4. Mengembangkan</span>
+                                    <p class="text-xs text-gray-600 mt-1">Inovasi produk baru dan perluasan pasar.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Interactive Matching Activity -->
+                        <div class="p-5 bg-brandLight/50 rounded-xl border border-brandLight space-y-4">
+                            <h4 class="font-bold text-brandDark font-rubik text-sm">🎮 Mini-Aktivitas: Cocokkan Perilaku Wirausaha!</h4>
+                            <p class="text-xs text-gray-600">Pilih perilaku wirausaha yang paling tepat untuk situasi berikut:</p>
+                            <div id="mini-matching-list" class="space-y-3 text-sm"></div>
+                        </div>
+                    </div>
+
+                    <!-- TAB B CONTENT -->
+                    <div id="content-tabB" class="m3-tab-content space-y-6 hidden">
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-brandDark font-rubik text-lg">1. Klasifikasi Produk & Kebutuhan Konsumen</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div class="bg-gray-50 p-4 rounded-xl border">
+                                    <h4 class="font-bold text-brandDark font-rubik mb-1">Berdasarkan Wujud</h4>
+                                    <p class="text-xs text-gray-600"><strong>Barang Tahan Lama:</strong> Laptop, Kamera.<br><strong>Barang Tidak Tahan Lama:</strong> Makanan, Sabun.<br><strong>Jasa:</strong> Desain Logo, Servis.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl border">
+                                    <h4 class="font-bold text-brandDark font-rubik mb-1">Produk Konsumen</h4>
+                                    <p class="text-xs text-gray-600"><strong>Convenience:</strong> Kebutuhan harian.<br><strong>Shopping:</strong> Pakaian, Laptop.<br><strong>Specialty:</strong> Mobil mewah.<br><strong>Unsought:</strong> Asuransi jiwa.</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl border">
+                                    <h4 class="font-bold text-brandDark font-rubik mb-1">Tingkat Kebutuhan</h4>
+                                    <p class="text-xs text-gray-600"><strong>Primer:</strong> Makanan pokok.<br><strong>Sekunder:</strong> Internet belajar.<br><strong>Tersier:</strong> Perhiasan emas.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4 Service Characteristics -->
+                        <div>
+                            <h3 class="font-bold text-brandDark font-rubik text-base mb-3">2. Empat Ciri Produk Jasa:</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+                                <div class="bg-brandDark text-white p-4 rounded-xl">
+                                    <span class="font-bold text-brandAccent text-sm block mb-1">Intangibility</span>
+                                    Tidak berwujud fisik sebelum dibeli.
+                                </div>
+                                <div class="bg-brandDark text-white p-4 rounded-xl">
+                                    <span class="font-bold text-brandAccent text-sm block mb-1">Inseparability</span>
+                                    Tidak dapat dipisahkan dari penyedianya.
+                                </div>
+                                <div class="bg-brandDark text-white p-4 rounded-xl">
+                                    <span class="font-bold text-brandAccent text-sm block mb-1">Variability</span>
+                                    Kualitas berubah tergantung siapa & kapan.
+                                </div>
+                                <div class="bg-brandDark text-white p-4 rounded-xl">
+                                    <span class="font-bold text-brandAccent text-sm block mb-1">Perishability</span>
+                                    Tidak dapat disimpan untuk masa depan.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Game 1: Kelompokkan Produk -->
+                        <div class="p-5 bg-gray-50 rounded-xl border space-y-4">
+                            <h4 class="font-bold text-brandDark font-rubik text-sm">🎮 Game 1: Kelompokkan Produk (8 Item)</h4>
+                            <div id="game-product-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs"></div>
+                        </div>
+
+                        <!-- Game 2: Tingkat Kebutuhan -->
+                        <div class="p-5 bg-brandLight/50 rounded-xl border border-brandLight space-y-4">
+                            <h4 class="font-bold text-brandDark font-rubik text-sm">🎮 Game 2: Klasifikasi Tingkat Kebutuhan (3 Item)</h4>
+                            <div id="game-needs-list" class="space-y-3 text-xs"></div>
+                        </div>
+                    </div>
+
+                    <!-- TAB C CONTENT -->
+                    <div id="content-tabC" class="m3-tab-content space-y-6 hidden">
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-brandDark font-rubik text-lg">1. Analisis Peluang Usaha (SWOT, 5W+1H, Porter)</h3>
+                            <p class="text-sm text-gray-700">Analisis SWOT mengkaji faktor <strong>Internal (Strengths & Weaknesses)</strong> dan <strong>Eksternal (Opportunities & Threats)</strong>.</p>
+                        </div>
+
+                        <!-- Interactive SWOT Builder -->
+                        <div class="p-5 bg-white border-2 border-brandDark/20 rounded-2xl space-y-4">
+                            <h4 class="font-bold text-brandDark font-rubik flex items-center gap-2 text-base">
+                                <span>🛠️</span> Interactive SWOT Builder (Buat Analisis Usahamu)
+                            </h4>
+                            <p class="text-xs text-gray-600">Ketik poin kekuatan, kelemahan, peluang, dan ancaman calon usahamu:</p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 space-y-2">
+                                    <h5 class="font-bold text-emerald-800 text-xs font-rubik uppercase">Strength (Kekuatan - Internal)</h5>
+                                    <div class="flex gap-2">
+                                        <input type="text" id="swot-s-input" placeholder="Tambah kekuatan..." class="flex-grow px-3 py-1.5 text-xs rounded border">
+                                        <button onclick="addSwotItem('S')" class="bg-emerald-600 text-white px-3 py-1.5 rounded text-xs font-bold">Tambah</button>
+                                    </div>
+                                    <ul id="swot-s-list" class="text-xs space-y-1 list-disc list-inside text-gray-700"></ul>
+                                </div>
+                                <div class="bg-rose-50 p-4 rounded-xl border border-rose-200 space-y-2">
+                                    <h5 class="font-bold text-rose-800 text-xs font-rubik uppercase">Weakness (Kelemahan - Internal)</h5>
+                                    <div class="flex gap-2">
+                                        <input type="text" id="swot-w-input" placeholder="Tambah kelemahan..." class="flex-grow px-3 py-1.5 text-xs rounded border">
+                                        <button onclick="addSwotItem('W')" class="bg-rose-600 text-white px-3 py-1.5 rounded text-xs font-bold">Tambah</button>
+                                    </div>
+                                    <ul id="swot-w-list" class="text-xs space-y-1 list-disc list-inside text-gray-700"></ul>
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 space-y-2">
+                                    <h5 class="font-bold text-blue-800 text-xs font-rubik uppercase">Opportunity (Peluang - Eksternal)</h5>
+                                    <div class="flex gap-2">
+                                        <input type="text" id="swot-o-input" placeholder="Tambah peluang..." class="flex-grow px-3 py-1.5 text-xs rounded border">
+                                        <button onclick="addSwotItem('O')" class="bg-blue-600 text-white px-3 py-1.5 rounded text-xs font-bold">Tambah</button>
+                                    </div>
+                                    <ul id="swot-o-list" class="text-xs space-y-1 list-disc list-inside text-gray-700"></ul>
+                                </div>
+                                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 space-y-2">
+                                    <h5 class="font-bold text-amber-800 text-xs font-rubik uppercase">Threat (Ancaman - Eksternal)</h5>
+                                    <div class="flex gap-2">
+                                        <input type="text" id="swot-t-input" placeholder="Tambah ancaman..." class="flex-grow px-3 py-1.5 text-xs rounded border">
+                                        <button onclick="addSwotItem('T')" class="bg-amber-600 text-white px-3 py-1.5 rounded text-xs font-bold">Tambah</button>
+                                    </div>
+                                    <ul id="swot-t-list" class="text-xs space-y-1 list-disc list-inside text-gray-700"></ul>
+                                </div>
+                            </div>
+
+                            <button onclick="generateSwotStrategyMatrix()" class="px-5 py-2.5 bg-brandDark text-white font-bold rounded-xl text-xs font-rubik">
+                                Buat Matriks Strategi (SO, WO, ST, WT) ➔
+                            </button>
+
+                            <div id="swot-matrix-output" class="hidden pt-4 border-t space-y-3">
+                                <h5 class="font-bold text-brandDark text-sm font-rubik">Matriks Formulasi Strategi:</h5>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                    <div class="p-3 bg-gray-50 border rounded-lg">
+                                        <label class="font-bold text-gray-800 block mb-1">Strategi SO (Gunakan Kekuatan untuk Raih Peluang):</label>
+                                        <textarea id="strat-so" rows="2" class="w-full p-2 border rounded" placeholder="Gunakan skill desain DKV untuk buat promosi kemasan UMKM..."></textarea>
+                                    </div>
+                                    <div class="p-3 bg-gray-50 border rounded-lg">
+                                        <label class="font-bold text-gray-800 block mb-1">Strategi WO (Atasi Kelemahan demi Ambil Peluang):</label>
+                                        <textarea id="strat-wo" rows="2" class="w-full p-2 border rounded" placeholder="Mengikuti pelatihan kelayakan biaya untuk kurangi kelemahan..."></textarea>
+                                    </div>
+                                    <div class="p-3 bg-gray-50 border rounded-lg">
+                                        <label class="font-bold text-gray-800 block mb-1">Strategi ST (Gunakan Kekuatan untuk Hadapi Ancaman):</label>
+                                        <textarea id="strat-st" rows="2" class="w-full p-2 border rounded" placeholder="Gunakan kecepatan kerja DKV untuk saingi studio besar..."></textarea>
+                                    </div>
+                                    <div class="p-3 bg-gray-50 border rounded-lg">
+                                        <label class="font-bold text-gray-800 block mb-1">Strategi WT (Minimalkan Kelemahan & Hindari Ancaman):</label>
+                                        <textarea id="strat-wt" rows="2" class="w-full p-2 border rounded" placeholder="Bermitra dengan mitra lokal agar tak rugi stok banyak..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5W + 1H Form -->
+                        <div class="p-5 bg-brandLight/40 rounded-xl border border-brandLight space-y-3">
+                            <h4 class="font-bold text-brandDark font-rubik text-sm">Formulir 5W + 1H Analisis Usaha</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                                <div><label class="font-bold block mb-1" for="w1">What (Jenis Usaha):</label><input type="text" id="w1" class="w-full p-2 border rounded" placeholder="Jasa Desain Kemasan UMKM"></div>
+                                <div><label class="font-bold block mb-1" for="w2">Why (Alasan Memilih):</label><input type="text" id="w2" class="w-full p-2 border rounded" placeholder="Banyak UMKM sekitar kemasannya polos"></div>
+                                <div><label class="font-bold block mb-1" for="w3">When (Kapan Memulai):</label><input type="text" id="w3" class="w-full p-2 border rounded" placeholder="Bulan depan setelah kelulusan"></div>
+                                <div><label class="font-bold block mb-1" for="w4">Where (Lokasi Usaha):</label><input type="text" id="w4" class="w-full p-2 border rounded" placeholder="Studio DKV & pemasaran online"></div>
+                                <div><label class="font-bold block mb-1" for="w5">Who (Tim & Target):</label><input type="text" id="w5" class="w-full p-2 border rounded" placeholder="Tim 3 siswa DKV & target UMKM Sidoarjo"></div>
+                                <div><label class="font-bold block mb-1" for="h1">How (Proses Eksekusi):</label><input type="text" id="h1" class="w-full p-2 border rounded" placeholder="Promosi Instagram & contoh sampel"></div>
+                            </div>
+                        </div>
+
+                        <!-- Porter's Five Forces Cards -->
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-brandDark font-rubik text-sm">Porter's Five Forces (5 Kekuatan Persaingan):</h4>
+                            <div class="space-y-2 text-xs" id="porter-cards-container">
+                                <!-- Rendered by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB D CONTENT -->
+                    <div id="content-tabD" class="m3-tab-content space-y-6 hidden">
+                        <div class="bg-gray-50 p-5 rounded-xl border space-y-3">
+                            <h3 class="font-bold text-brandDark font-rubik text-lg">Pengertian Studi Kelayakan Usaha</h3>
+                            <p class="text-sm leading-relaxed text-gray-700">
+                                Studi kelayakan usaha adalah kegiatan mendalami usaha yang akan dijalankan untuk memutuskan apakah usaha tersebut <strong>LAYAK</strong> atau <strong>TIDAK LAYAK</strong> dijalankan.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <div class="p-4 bg-brandLight rounded-xl space-y-2">
+                                <h4 class="font-bold text-brandDark font-rubik text-sm">5 Hal Utama Yang Dikaji:</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Aspek Pasar & Pemasaran</li>
+                                    <li>Aspek Teknis & Produksi</li>
+                                    <li>Aspek Manajemen & Organisasi</li>
+                                    <li>Aspek Keuangan (Cashflow & Payback)</li>
+                                    <li>Situasi Lingkungan & Ekonomi</li>
+                                </ul>
+                            </div>
+                            <div class="p-4 bg-brandLight rounded-xl space-y-2">
+                                <h4 class="font-bold text-brandDark font-rubik text-sm">5 Manfaat Studi Kelayakan:</h4>
+                                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                                    <li>Memudahkan Perencanaan Bisnis</li>
+                                    <li>Memperlancar Pelaksanaan Usaha</li>
+                                    <li>Memperkecil Risiko Kerugian Modal</li>
+                                    <li>Memudahkan Pengawasan Operasional</li>
+                                    <li>Memudahkan Pengendalian Evaluasi</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="text-center pt-4">
+                            <button onclick="goToModule(4)" class="px-8 py-3 bg-brandAccent text-brandText font-bold rounded-xl font-rubik shadow hover:brightness-105 transition">
+                                Masuk ke Simulasi Lab Kelayakan Virtual (Modul 4) ➔
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between pt-4 border-t">
+                        <button onclick="goToModule(2)" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 font-bold rounded-lg text-sm">← Kembali</button>
+                        <button onclick="goToModule(4)" class="px-6 py-2.5 bg-brandAccent text-brandText font-bold rounded-lg text-sm shadow hover:brightness-105">Lanjut: Lab Kelayakan ➔</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="module-4" class="module-section space-y-6 hidden">
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200/80 space-y-6">
+                    <div class="border-b pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <span class="text-xs font-bold text-brandDark uppercase tracking-wider bg-brandLight px-3 py-1 rounded-full">Modul 4</span>
+                            <h2 class="text-2xl font-bold font-rubik text-brandDark mt-1">Simulasi Laboratorium Virtual Studi Kelayakan</h2>
+                        </div>
+                    </div>
+
+                    <!-- Lab Mode Tabs Header -->
+                    <div class="flex border-b overflow-x-auto space-x-2 text-sm font-bold no-scrollbar">
+                        <button onclick="switchLabMode('modeA')" id="btn-modeA" class="px-4 py-2.5 border-b-2 border-brandDark text-brandDark whitespace-nowrap">Mode A: Soto Ayam Ibu Winne</button>
+                        <button onclick="switchLabMode('modeB')" id="btn-modeB" class="px-4 py-2.5 border-b-2 border-transparent text-gray-500 hover:text-brandDark whitespace-nowrap">Mode B: Jasa Desain DKV</button>
+                        <button onclick="switchLabMode('modeC')" id="btn-modeC" class="px-4 py-2.5 border-b-2 border-transparent text-gray-500 hover:text-brandDark whitespace-nowrap">Mode C: Kalkulator Bebas Timku</button>
+                    </div>
+
+                    <!-- MODE A: SOTO IBU WINNE -->
+                    <div id="lab-modeA" class="lab-mode-content space-y-6">
+                        <div class="space-y-2 text-xs">
+                            <div class="bg-amber-50 border-l-4 border-amber-500 p-3.5 rounded-r-xl text-amber-900">
+                                <strong>⚠️ Peringatan Harga:</strong> Harga pada studi kasus ini berasal dari tahun 2006-2007. Ubah slider dengan harga terkini hasil surveimu!
+                            </div>
+                            <div class="bg-blue-50 border-l-4 border-blue-500 p-3.5 rounded-r-xl text-blue-900">
+                                <strong>⚠️ Peringatan Sewa:</strong> Teks modul menyebut sewa kios Rp 10-15 juta per tahun, sedangkan perhitungan contoh memakai Rp 25 juta. Coba ubah sewa dan lihat dampaknya pada keuntungan!
+                            </div>
+                        </div>
+
+                        <!-- Sliders Control Panel -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-5 rounded-2xl border text-xs">
+                            <div class="space-y-3">
+                                <h4 class="font-bold text-brandDark font-rubik text-sm">Parameter Penerimaan:</h4>
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>Harga Soto / Porsi:</span>
+                                        <span id="lbl-soto-price">Rp 6.000</span>
+                                    </div>
+                                    <input type="range" min="4000" max="15000" step="500" value="6000" id="sld-soto-price" oninput="calcModeA()" class="w-full">
+                                </div>
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>Harga Minuman / Porsi:</span>
+                                        <span id="lbl-drink-price">Rp 2.000</span>
+                                    </div>
+                                    <input type="range" min="1000" max="5000" step="500" value="2000" id="sld-drink-price" oninput="calcModeA()" class="w-full">
+                                </div>
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>Target Porsi / Hari:</span>
+                                        <span id="lbl-portion">50 Porsi</span>
+                                    </div>
+                                    <input type="range" min="10" max="150" step="5" value="50" id="sld-portion" oninput="calcModeA()" class="w-full">
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <h4 class="font-bold text-brandDark font-rubik text-sm">Parameter Biaya Operasional:</h4>
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>Belanja Bahan Ayam / Hari:</span>
+                                        <span id="lbl-bahan-harian">Rp 150.000</span>
+                                    </div>
+                                    <input type="range" min="50000" max="400000" step="10000" value="150000" id="sld-bahan-harian" oninput="calcModeA()" class="w-full">
+                                </div>
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>Sewa Tempat / Tahun:</span>
+                                        <span id="lbl-sewa-tahun">Rp 25.000.000</span>
+                                    </div>
+                                    <input type="range" min="10000000" max="35000000" step="1000000" value="25000000" id="sld-sewa-tahun" oninput="calcModeA()" class="w-full">
+                                </div>
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>Gaji Karyawan / Bulan:</span>
+                                        <span id="lbl-gaji">Rp 700.000</span>
+                                    </div>
+                                    <input type="range" min="500000" max="2000000" step="100000" value="700000" id="sld-gaji" oninput="calcModeA()" class="w-full">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Test Buttons -->
+                        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                            <span class="py-1 font-bold text-gray-700">Uji Skenario Cepat:</span>
+                            <button onclick="testScenarioModeA('bahanUp')" class="px-3 py-1 bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-lg border">Skenario A: Bahan Naik 10%</button>
+                            <button onclick="testScenarioModeA('porsiDown')" class="px-3 py-1 bg-rose-100 hover:bg-rose-200 text-rose-800 rounded-lg border">Skenario B: Porsi Turun 20%</button>
+                            <button onclick="testScenarioModeA('sewa12m')" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-lg border">Skenario C: Sewa Rp12 Juta/Thn</button>
+                            <button onclick="resetModeA()" class="px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg border ml-auto">Reset Data Awal</button>
+                        </div>
+
+                        <!-- Realtime Output Results Grid -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+                            <div class="bg-brandLight p-3.5 rounded-xl border">
+                                <span class="text-xs text-gray-600 block">Total Investasi</span>
+                                <span id="resA-investasi" class="font-extrabold text-brandDark text-sm">Rp 13.800.000</span>
+                            </div>
+                            <div class="bg-brandLight p-3.5 rounded-xl border">
+                                <span class="text-xs text-gray-600 block">Biaya Operasional/Bln</span>
+                                <span id="resA-operasional" class="font-extrabold text-brandDark text-sm">Rp 0</span>
+                            </div>
+                            <div class="bg-emerald-50 p-3.5 rounded-xl border border-emerald-200">
+                                <span class="text-xs text-emerald-800 block">Keuntungan / Bulan</span>
+                                <span id="resA-laba" class="font-extrabold text-emerald-700 text-base">Rp 0</span>
+                            </div>
+                            <div class="bg-amber-50 p-3.5 rounded-xl border border-amber-200">
+                                <span class="text-xs text-amber-800 block">Payback Period</span>
+                                <span id="resA-payback" class="font-extrabold text-amber-800 text-base">0 Bulan</span>
+                            </div>
+                        </div>
+
+                        <!-- SVG Financial Bar Chart & Auto Interpretation -->
+                        <div class="bg-white p-5 rounded-xl border space-y-4">
+                            <h4 class="font-bold text-brandDark font-rubik text-sm">Grafik Biaya vs Penerimaan (Real-time SVG)</h4>
+                            <div class="h-40 w-full flex items-end justify-center gap-8 pt-6 pb-2 border-b" id="svg-chart-container-A">
+                                <!-- Rendered dynamically by JS -->
+                            </div>
+                            <div id="interpretation-box-A" class="p-4 rounded-xl text-xs leading-relaxed font-semibold"></div>
+                        </div>
+                    </div>
+
+                    <!-- MODE B: JASA DESAIN DKV -->
+                    <div id="lab-modeB" class="lab-mode-content space-y-6 hidden">
+                        <div class="bg-brandLight/40 p-5 rounded-xl border space-y-2 text-xs">
+                            <h4 class="font-bold text-brandDark font-rubik text-sm">Studi Kasus Latihan: Jasa Desain DKV Studio</h4>
+                            <p><strong>Investasi:</strong> Laptop Rp 10.800.000 (36 bulan) + Tablet Grafis Rp 2.400.000 (24 bulan) = <strong>Rp 13.200.000</strong></p>
+                            <p><strong>Biaya Tetap Lain:</strong> Internet & Listrik Rp 250.000 + Software Rp 150.000 = Rp 400.000/bln</p>
+                            <p><strong>Biaya Variabel:</strong> Bahan cetak & mockup = Rp 400.000/bln</p>
+                            <p><strong>Penerimaan:</strong> 8 Paket Logo x Rp 500.000 = <strong>Rp 4.000.000/bln</strong></p>
+                        </div>
+
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-xs">
+                            <div class="bg-white p-3 border rounded-xl">
+                                <span class="text-gray-500 block">Penyusutan Alat</span>
+                                <span class="font-bold text-brandDark text-sm">Rp 400.000 / bln</span>
+                            </div>
+                            <div class="bg-white p-3 border rounded-xl">
+                                <span class="text-gray-500 block">Biaya Operasional</span>
+                                <span class="font-bold text-brandDark text-sm">Rp 1.200.000 / bln</span>
+                            </div>
+                            <div class="bg-emerald-50 p-3 border border-emerald-200 rounded-xl">
+                                <span class="text-emerald-800 block">Keuntungan Bersih</span>
+                                <span class="font-bold text-emerald-700 text-sm">Rp 2.800.000 / bln</span>
+                            </div>
+                            <div class="bg-amber-50 p-3 border border-amber-200 rounded-xl">
+                                <span class="text-amber-800 block">Payback Period</span>
+                                <span class="font-bold text-amber-800 text-sm">4.71 Bulan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODE C: CUSTOM CALCULATOR -->
+                    <div id="lab-modeC" class="lab-mode-content space-y-6 hidden">
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-brandDark font-rubik text-base">Rancang Kelayakan Usaha Timku (Kalkulator Bebas)</h4>
+                            
+                            <!-- Custom Equipment Table -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <h5 class="font-bold text-xs uppercase text-brandDark font-rubik">1. Peralatan Investasi</h5>
+                                    <button onclick="addCustomRow('equip')" class="text-xs bg-brandDark text-white px-2.5 py-1 rounded font-semibold">+ Tambah Peralatan</button>
+                                </div>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-xs text-left border" id="tbl-custom-equip">
+                                        <thead class="bg-gray-100 font-bold">
+                                            <tr><th class="p-2 border">Nama Alat</th><th class="p-2 border">Harga (Rp)</th><th class="p-2 border">Masa Pakai (Bulan)</th><th class="p-2 border">Aksi</th></tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Custom Fixed & Variable Costs Table -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <h5 class="font-bold text-xs uppercase text-brandDark font-rubik">2. Biaya Tetap Lain (Per Bulan)</h5>
+                                        <button onclick="addCustomRow('fixed')" class="text-xs bg-brandDark text-white px-2 py-1 rounded font-semibold">+ Tambah</button>
+                                    </div>
+                                    <table class="w-full text-xs border" id="tbl-custom-fixed">
+                                        <thead class="bg-gray-100 font-bold"><tr><th class="p-2 border">Deskripsi</th><th class="p-2 border">Nominal (Rp)</th><th class="p-2 border">Hapus</th></tr></thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <h5 class="font-bold text-xs uppercase text-brandDark font-rubik">3. Biaya Variabel (Per Bulan)</h5>
+                                        <button onclick="addCustomRow('var')" class="text-xs bg-brandDark text-white px-2 py-1 rounded font-semibold">+ Tambah</button>
+                                    </div>
+                                    <table class="w-full text-xs border" id="tbl-custom-var">
+                                        <thead class="bg-gray-100 font-bold"><tr><th class="p-2 border">Deskripsi</th><th class="p-2 border">Nominal (Rp)</th><th class="p-2 border">Hapus</th></tr></thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Custom Revenue Table -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <h5 class="font-bold text-xs uppercase text-brandDark font-rubik">4. Penjualan Produk / Jasa (Per Bulan)</h5>
+                                    <button onclick="addCustomRow('rev')" class="text-xs bg-brandDark text-white px-2.5 py-1 rounded font-semibold">+ Tambah Produk</button>
+                                </div>
+                                <table class="w-full text-xs border" id="tbl-custom-rev">
+                                    <thead class="bg-gray-100 font-bold"><tr><th class="p-2 border">Nama Produk/Jasa</th><th class="p-2 border">Harga Satuan (Rp)</th><th class="p-2 border">Jumlah Terjual/Bln</th><th class="p-2 border">Hapus</th></tr></thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+
+                            <button onclick="calculateCustomModeC()" class="w-full py-3 bg-brandDark text-white font-bold rounded-xl text-sm font-rubik">
+                                🔄 Hitung Kelayakan Usaha Timku
+                            </button>
+
+                            <!-- Results Summary Output C -->
+                            <div id="custom-output-box" class="hidden p-5 bg-brandLight/50 border rounded-2xl space-y-3 text-xs">
+                                <h5 class="font-bold text-brandDark font-rubik text-sm">Hasil Kelayakan Usaha Timku:</h5>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+                                    <div class="bg-white p-3 rounded-lg border"><span class="text-gray-500 block">Total Investasi</span><span id="c-res-inv" class="font-bold text-brandDark">Rp 0</span></div>
+                                    <div class="bg-white p-3 rounded-lg border"><span class="text-gray-500 block">Biaya Operasional</span><span id="c-res-op" class="font-bold text-brandDark">Rp 0</span></div>
+                                    <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-200"><span class="text-emerald-800 block">Keuntungan</span><span id="c-res-laba" class="font-bold text-emerald-700">Rp 0</span></div>
+                                    <div class="bg-amber-50 p-3 rounded-lg border border-amber-200"><span class="text-amber-800 block">Payback Period</span><span id="c-res-payback" class="font-bold text-amber-800">0 Bulan</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between pt-4 border-t">
+                        <button onclick="goToModule(3)" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 font-bold rounded-lg text-sm">← Kembali</button>
+                        <button onclick="goToModule(5)" class="px-6 py-2.5 bg-brandAccent text-brandText font-bold rounded-lg text-sm shadow hover:brightness-105">Lanjut: Kuis Penguatan ➔</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="module-5" class="module-section space-y-6 hidden">
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200/80 space-y-6">
+                    <div class="border-b pb-4 flex justify-between items-center">
+                        <div>
+                            <span class="text-xs font-bold text-brandDark uppercase tracking-wider bg-brandLight px-3 py-1 rounded-full">Modul 5</span>
+                            <h2 class="text-2xl font-bold font-rubik text-brandDark mt-2">Kuis Penguatan Pemahaman</h2>
+                        </div>
+                        <span id="quiz-step-indicator" class="text-xs font-bold bg-brandDark text-white px-3 py-1 rounded-full">Soal 1 dari 10</span>
+                    </div>
+
+                    <div id="quiz-question-card" class="space-y-4 min-h-[260px]">
+                        <!-- Rendered by JS -->
+                    </div>
+
+                    <!-- Quiz Final Score Board -->
+                    <div id="quiz-summary-board" class="hidden space-y-6 text-center bg-brandBg p-6 rounded-2xl border">
+                        <div>
+                            <span class="text-xs font-bold uppercase text-gray-500 tracking-wider">Hasil Kuis Evaluasimu</span>
+                            <h3 id="quiz-final-score" class="text-4xl font-extrabold text-brandDark font-rubik my-2">0 / 10</h3>
+                            <p id="quiz-feedback-text" class="text-sm text-gray-600 font-semibold"></p>
+                        </div>
+
+                        <div id="quiz-failed-topics-box" class="text-left bg-white p-4 rounded-xl border text-xs space-y-2">
+                            <h4 class="font-bold text-brandDark font-rubik text-sm">Topik Yang Perlu Diperkuat Kembali:</h4>
+                            <ul id="quiz-failed-topics-list" class="list-disc list-inside text-rose-600 space-y-1"></ul>
+                        </div>
+
+                        <div class="flex justify-center gap-3">
+                            <button onclick="retryFailedQuiz()" id="retry-failed-btn" class="px-5 py-2.5 bg-amber-500 text-white font-bold rounded-xl text-xs font-rubik hidden">
+                                🔄 Ulangi Soal Yang Salah
+                            </button>
+                            <button onclick="resetFullQuiz()" class="px-5 py-2.5 bg-brandDark text-white font-bold rounded-xl text-xs font-rubik">
+                                Acak Kuis Baru Dari Awal
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between pt-4 border-t">
+                        <button onclick="goToModule(4)" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 font-bold rounded-lg text-sm">← Kembali</button>
+                        <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="px-6 py-2.5 bg-brandAccent text-brandText font-bold rounded-lg text-sm shadow hover:brightness-105">Soal Berikutnya ➔</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="module-6" class="module-section space-y-6 hidden">
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200/80 space-y-6">
+                    <div class="border-b pb-4">
+                        <span class="text-xs font-bold text-brandDark uppercase tracking-wider bg-brandLight px-3 py-1 rounded-full">Modul 6</span>
+                        <h2 class="text-2xl font-bold font-rubik text-brandDark mt-2">Studi Kasus Akhir: Stiker & Merchandise "Warna Jabon"</h2>
+                    </div>
+
+                    <!-- Case Study Background -->
+                    <div class="bg-brandLight/50 p-5 rounded-xl border border-brandLight space-y-3 text-xs leading-relaxed text-gray-700">
+                        <h3 class="font-bold text-brandDark font-rubik text-sm">📸 Profil Usaha: "Warna Jabon" Stiker & Merchandise DKV</h3>
+                        <p>Tim DKV kalian berencana mendirikan usaha stiker dan merchandise cetak kustom dengan rincian modal & operasional sebagai berikut:</p>
+                        <ul class="list-disc list-inside space-y-1 bg-white p-3 rounded-lg border">
+                            <li><strong>Peralatan Investasi:</strong> Printer Cetak Rp 4.800.000 (masa pakai 24 bulan); Mesin Potong Stiker Rp 3.600.000 (36 bulan); Peralatan Pendukung Rp 600.000 (12 bulan).</li>
+                            <li><strong>Biaya Tetap Lain / Bln:</strong> Sewa sudut ruang Rp 300.000; Internet Rp 150.000.</li>
+                            <li><strong>Biaya Variabel / Bln:</strong> Bahan kertas vinyl & tinta Rp 2.200.000; Kemasan & ongkir Rp 300.000.</li>
+                            <li><strong>Penerimaan / Bln:</strong> Target 300 lembar stiker x Rp 15.000 / lembar.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Step 1: SWOT Self-Check -->
+                    <div class="space-y-3 border-t pt-4">
+                        <h4 class="font-bold text-brandDark font-rubik text-sm">Langkah 1: Identifikasi SWOT Singkat Timku</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div><label class="font-bold block mb-1" for="cs-swot-s">Strength (Kekuatan):</label><input type="text" id="cs-swot-s" class="w-full p-2 border rounded" placeholder="Contoh: Menguasai software desain & cutting..."></div>
+                            <div><label class="font-bold block mb-1" for="cs-swot-w">Weakness (Kelemahan):</label><input type="text" id="cs-swot-w" class="w-full p-2 border rounded" placeholder="Contoh: Ruang kerja cetak terbatas..."></div>
+                            <div><label class="font-bold block mb-1" for="cs-swot-o">Opportunity (Peluang):</label><input type="text" id="cs-swot-o" class="w-full p-2 border rounded" placeholder="Contoh: Permintaan tinggi merchandise sekolah & UMKM..."></div>
+                            <div><label class="font-bold block mb-1" for="cs-swot-t">Threat (Ancaman):</label><input type="text" id="cs-swot-t" class="w-full p-2 border rounded" placeholder="Contoh: Persaingan percetakan online murah..."></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Live Calculation Fields -->
+                    <div class="space-y-3 border-t pt-4">
+                        <h4 class="font-bold text-brandDark font-rubik text-sm">Langkah 2: Hitung Mandiri Kelayakan Usaha "Warna Jabon"</h4>
+                        <p class="text-xs text-gray-600">Isi angka hasil perhitunganmu di bawah ini (masukkan angka murni tanpa titik):</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+                            <div>
+                                <label class="font-bold block mb-1" for="cs-calc-inv">1. Total Investasi (Rp):</label>
+                                <input type="number" id="cs-calc-inv" class="w-full p-2 border rounded" placeholder="9000000">
+                            </div>
+                            <div>
+                                <label class="font-bold block mb-1" for="cs-calc-peny">2. Penyusutan / Bln (Rp):</label>
+                                <input type="number" id="cs-calc-peny" class="w-full p-2 border rounded" placeholder="350000">
+                            </div>
+                            <div>
+                                <label class="font-bold block mb-1" for="cs-calc-bt">3. Biaya Tetap / Bln (Rp):</label>
+                                <input type="number" id="cs-calc-bt" class="w-full p-2 border rounded" placeholder="800000">
+                            </div>
+                            <div>
+                                <label class="font-bold block mb-1" for="cs-calc-bv">4. Biaya Variabel / Bln (Rp):</label>
+                                <input type="number" id="cs-calc-bv" class="w-full p-2 border rounded" placeholder="2500000">
+                            </div>
+                            <div>
+                                <label class="font-bold block mb-1" for="cs-calc-op">5. Total Biaya Operasional (Rp):</label>
+                                <input type="number" id="cs-calc-op" class="w-full p-2 border rounded" placeholder="3300000">
+                            </div>
+                            <div>
+                                <label class="font-bold block mb-1" for="cs-calc-pen">6. Total Penerimaan (Rp):</label>
+                                <input type="number" id="cs-calc-pen" class="w-full p-2 border rounded" placeholder="4500000">
+                            </div>
+                            <div>
+                                <label class="font-bold block mb-1" for="cs-calc-laba">7. Keuntungan / Bln (Rp):</label>
+                                <input type="number" id="cs-calc-laba" class="w-full p-2 border rounded" placeholder="1200000">
+                            </div>
+                            <div>
+                                <label class="font-bold block mb-1" for="cs-calc-payback">8. Payback Period (Bulan):</label>
+                                <input type="number" step="0.1" id="cs-calc-payback" class="w-full p-2 border rounded" placeholder="7.5">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Scenario Calculation -->
+                    <div class="space-y-3 border-t pt-4 bg-amber-50 p-4 rounded-xl border border-amber-200">
+                        <h4 class="font-bold text-amber-900 font-rubik text-sm">Langkah 3: Analisis Skenario (Bahan Naik 10%)</h4>
+                        <p class="text-xs text-amber-800">Jika harga bahan kertas vinyl & tinta naik 10% (menjadi Rp 2.420.000 + Rp 300.000 = Rp 2.720.000), hitung angka terbarunya:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div>
+                                <label class="font-bold block mb-1 text-amber-900" for="cs-scen-laba">Keuntungan Baru / Bln (Rp):</label>
+                                <input type="number" id="cs-scen-laba" class="w-full p-2 border rounded bg-white" placeholder="980000">
+                            </div>
+                            <div>
+                                <label class="font-bold block mb-1 text-amber-900" for="cs-scen-payback">Payback Period Baru (Bulan):</label>
+                                <input type="number" step="0.01" id="cs-scen-payback" class="w-full p-2 border rounded bg-white" placeholder="9.18">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Decision & Justification -->
+                    <div class="space-y-3 border-t pt-4">
+                        <h4 class="font-bold text-brandDark font-rubik text-sm">Langkah 4: Keputusan & Alasan Berbasis Data</h4>
+                        <div class="space-y-2 text-xs">
+                            <label class="font-bold block" for="cs-decision-select">Keputusan Akhir Timku:</label>
+                            <select id="cs-decision-select" class="w-full p-2.5 border rounded-lg font-semibold">
+                                <option value="Layak dijalankan">Layak Dijalankan (Prospektif & Payback Cepat)</option>
+                                <option value="Perlu diperbaiki">Perlu Diperbaiki (Optimalkan Biaya Operasional)</option>
+                                <option value="Cari peluang lain">Cari Peluang Usaha Lain</option>
+                            </select>
+                            <label class="font-bold block mt-2" for="cs-reason-text">Alasan Keputusan (Sebutkan angka laba dan payback period):</label>
+                            <textarea id="cs-reason-text" rows="3" class="w-full p-2.5 border rounded-lg" placeholder="Tuliskan alasan pertimbangan timmu secara rasional berbasis angka..."></textarea>
+                        </div>
+                    </div>
+
+                    <button onclick="evaluateCaseStudy()" class="w-full py-3 bg-brandDark text-white font-bold rounded-xl font-rubik text-sm shadow">
+                        ✅ Verifikasi & Periksa Jawaban Studi Kasus
+                    </button>
+
+                    <!-- Case Study Feedback Result -->
+                    <div id="cs-feedback-box" class="hidden p-5 rounded-2xl space-y-3 text-xs"></div>
+
+                    <div class="flex justify-between pt-4 border-t">
+                        <button onclick="goToModule(5)" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 font-bold rounded-lg text-sm">← Kembali</button>
+                        <button onclick="goToModule(7)" class="px-6 py-2.5 bg-brandAccent text-brandText font-bold rounded-lg text-sm shadow hover:brightness-105">Lanjut: Refleksi & Hasil ➔</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="module-7" class="module-section space-y-6 hidden">
+                
+                <!-- Print Header Kop -->
+                <div class="print-only border-b-2 border-brandDark pb-4 mb-6">
+                    <div class="flex items-center justify-between">
+                        <div class="w-16 h-16 logo-sekolah-container flex items-center justify-center"></div>
+                        <div class="text-right">
+                            <h2 class="text-xl font-bold font-rubik text-brandDark">SMK NEGERI 1 JABON - SIDOARJO</h2>
+                            <p class="text-xs font-bold text-gray-600">Laporan Hasil Portofolio Belajar Kewirausahaan Kreatif (MPI KIK)</p>
+                            <p class="text-xs text-gray-500">Tanggal Cetak: <span id="print-date-stamp"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200/80 space-y-6">
+                    <div class="border-b pb-4">
+                        <span class="text-xs font-bold text-brandDark uppercase tracking-wider bg-brandLight px-3 py-1 rounded-full">Modul 7</span>
+                        <h2 class="text-2xl font-bold font-rubik text-brandDark mt-2">Refleksi Diri & Ringkasan Hasil Belajar</h2>
+                    </div>
+
+                    <!-- Self Rating Scale (1-4) -->
+                    <div class="space-y-4 bg-gray-50 p-5 rounded-2xl border text-xs">
+                        <h3 class="font-bold text-brandDark font-rubik text-sm">1. Skala Pemahaman Mandiri (Skala 1 - 4):</h3>
+                        <div class="space-y-3" id="self-rating-container">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Learning Feelings & Reflection Fields -->
+                    <div class="space-y-4 text-xs">
+                        <h3 class="font-bold text-brandDark font-rubik text-sm">2. Perasaan & Komitmen Belajar:</h3>
+                        <div>
+                            <label class="font-bold block mb-1" for="refl-feeling">Perasaan Belajar Selama Menggunakan MPI Ini:</label>
+                            <select id="refl-feeling" class="w-full p-2 border rounded-lg font-semibold">
+                                <option value="tertantang dan antusias">Tertantang dan Sangat Antusias</option>
+                                <option value="penasaran">Penasaran Ingin Belajar Lebih Lanjut</option>
+                                <option value="bangga">Bangga Berhasil Menghitung Kelayakan</option>
+                                <option value="sempat bingung namun paham">Sempat Bingung Namun Akhirnya Paham</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="font-bold block mb-1" for="refl-meaningful">Hal Yang Paling Bermakna Dipelajari:</label>
+                            <textarea id="refl-meaningful" rows="2" class="w-full p-2 border rounded-lg" placeholder="Mengetahui cara menghitung kapan modal usaha kembali..."></textarea>
+                        </div>
+                        <div>
+                            <label class="font-bold block mb-1" for="refl-struggle">Kesulitan Terbesar & Solusi Yang Dilakukan:</label>
+                            <textarea id="refl-struggle" rows="2" class="w-full p-2 border rounded-lg" placeholder="Memahami istilah penyusutan, solusinya berlatih simulasi lab..."></textarea>
+                        </div>
+                        <div>
+                            <label class="font-bold block mb-1" for="refl-commitment">Komitmen Tindak Lanjut:</label>
+                            <textarea id="refl-commitment" rows="2" class="w-full p-2 border rounded-lg" placeholder="Akan mempraktikkan analisis SWOT sebelum membuat usaha DKV..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Auto Generated Final Summary Document -->
+                    <div class="bg-brandBg p-6 rounded-2xl border space-y-4 card-print">
+                        <div class="border-b pb-3 flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <div class="logo-sekolah-container w-8 h-8"></div>
+                                <h3 class="font-bold text-brandDark font-rubik text-base">📄 Ringkasan Hasil Portofolio Belajar</h3>
+                            </div>
+                            <span class="text-xs bg-brandDark text-white px-3 py-1 rounded-full font-bold">SMKN 1 Jabon</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div><strong>Nama Siswa:</strong> <span id="sum-student-name">-</span></div>
+                            <div><strong>Nama Tim:</strong> <span id="sum-student-team">-</span></div>
+                            <div><strong>Skor Kuis Penguatan:</strong> <span id="sum-quiz-score" class="font-bold text-brandDark">0 / 10</span></div>
+                            <div><strong>Skor Studi Kasus Akhir:</strong> <span id="sum-casestudy-score" class="font-bold text-brandDark">0 / 10</span></div>
+                        </div>
+
+                        <div class="text-xs space-y-1 bg-white p-3 rounded-xl border">
+                            <span class="font-bold text-gray-700 block">Rekomendasi Topik Penguatan Guru:</span>
+                            <p id="sum-recom-text" class="text-gray-600 font-semibold italic">Selesaikan kuis untuk melihat rekomendasi otomatis.</p>
+                        </div>
+
+                        <p class="text-[11px] text-gray-500 italic text-center">"Dokumen ini dibuat secara otomatis sebagai bukti ketuntasan belajar mata pelajaran KIK."</p>
+                    </div>
+
+                    <!-- Action Buttons: CSV Download, Copy Text, Print -->
+                    <div class="no-print flex flex-wrap gap-3 justify-center pt-2">
+                        <button onclick="downloadCSV()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs font-rubik shadow flex items-center gap-2">
+                            <span>📥</span> Unduh Hasil (CSV)
+                        </button>
+                        <button onclick="copySummaryText()" class="px-5 py-3 bg-brandDark hover:bg-slate-800 text-white font-bold rounded-xl text-xs font-rubik shadow flex items-center gap-2">
+                            <span>📋</span> Salin Hasil Sebagai Teks
+                        </button>
+                        <button onclick="window.print()" class="px-5 py-3 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold rounded-xl text-xs font-rubik flex items-center gap-2">
+                            <span>🖨️</span> Cetak Ringkasan Hasil
+                        </button>
+                    </div>
+
+                    <div class="flex justify-between pt-4 border-t no-print">
+                        <button onclick="goToModule(6)" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 font-bold rounded-lg text-sm">← Kembali</button>
+                        <button onclick="goToModule(0)" class="px-6 py-2.5 bg-brandDark text-white font-bold rounded-lg text-sm">Selesai / Kembali ke Beranda 🏠</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="no-print bg-white border-t py-4 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <div class="logo-sekolah-container w-5 h-5"></div>
+                <span>SMK Negeri 1 Jabon - MPI Kewirausahaan Kreatif</span>
+            </div>
+            <span>Desain Pembelajaran Mendalam: Berkesadaran, Bermakna, Menggembirakan.</span>
+        </div>
+    </footer>
+
+    <script>
+        // Module Metadata
+        const modules = [
+            { id: 0, title: "Beranda", icon: "🏠" },
+            { id: 1, title: "Apersepsi", icon: "💡" },
+            { id: 2, title: "Asesmen Awal", icon: "📋" },
+            { id: 3, title: "Materi Pokok", icon: "📖" },
+            { id: 4, title: "Lab Kelayakan", icon: "🧪" },
+            { id: 5, title: "Kuis Penguatan", icon: "✍️" },
+            { id: 6, title: "Studi Kasus", icon: "📸" },
+            { id: 7, title: "Refleksi & Hasil", icon: "🎓" }
+        ];
+
+        // 20 QUESTION BANK FOR MODULE 5
+        const fullQuizQuestionPool = [
+            // --- 10 Original Questions ---
+            {
+                q: "1. Wirausahawan yang berani menghadapi kemungkinan rugi atau usaha tidak berjalan sesuai rencana menunjukkan perilaku ...",
+                opts: ["Berani berkreasi", "Berani mengambil risiko", "Disiplin", "Hemat"],
+                ans: 1,
+                exp: "Berani mengambil risiko berarti siap menghadapi kemungkinan rugi atau hasil yang tidak sesuai rencana.",
+                topic: "Konsep Wirausaha"
+            },
+            {
+                q: "2. Urutan tahapan wirausaha yang benar dari awal hingga akhir adalah ...",
+                opts: [
+                    "Memulai, pelaksanaan, mempertahankan, mengembangkan",
+                    "Pelaksanaan, memulai, mengembangkan, mempertahankan",
+                    "Mengembangkan, memulai, pelaksanaan, mempertahankan",
+                    "Mempertahankan, memulai, pelaksanaan, mengembangkan"
+                ],
+                ans: 0,
+                exp: "Tahapan diawali dari persiapan memulai, pelaksanaan operasional, mempertahankan kualitas, lalu mengembangkan inovasi.",
+                topic: "Tahapan Wirausaha"
+            },
+            {
+                q: "3. Pakaian, perangkat elektronik, dan furnitur yang dipilih setelah membandingkan harga, kualitas, dan gaya termasuk ...",
+                opts: ["Convenience goods", "Shopping goods", "Specialty goods", "Unsought goods"],
+                ans: 1,
+                exp: "Shopping goods dibeli konsumen setelah membandingkan mutu, harga, dan gaya.",
+                topic: "Klasifikasi Produk"
+            },
+            {
+                q: "4. Asuransi jiwa dan produk yang tidak terpikirkan untuk dibeli sebelum ada edukasi termasuk ...",
+                opts: ["Convenience goods", "Shopping goods", "Specialty goods", "Unsought goods"],
+                ans: 3,
+                exp: "Unsought goods adalah produk yang tidak dicari secara spontan oleh konsumen.",
+                topic: "Klasifikasi Produk"
+            },
+            {
+                q: "5. Kebutuhan pelengkap yang bersifat mewah seperti perhiasan emas tergolong kebutuhan ...",
+                opts: ["Primer", "Sekunder", "Tersier", "Pokok"],
+                ans: 2,
+                exp: "Kebutuhan tersier dipenuhi setelah kebutuhan primer dan sekunder terpenuhi.",
+                topic: "Tingkat Kebutuhan"
+            },
+            {
+                q: "6. Ciri produk jasa yang menyatakan jasa tidak dapat disentuh atau diraba secara fisik adalah ...",
+                opts: ["Intangibility", "Inseparability", "Variability", "Perishability"],
+                ans: 0,
+                exp: "Intangibility berarti tidak berwujud fisik.",
+                topic: "Ciri Produk Jasa"
+            },
+            {
+                q: "7. Pada analisis SWOT, 'belum dikenal' dan 'pesaing sudah banyak' berturut-turut termasuk ...",
+                opts: ["Strength dan Opportunity", "Weakness dan Threat", "Opportunity dan Weakness", "Threat dan Strength"],
+                ans: 1,
+                exp: "Belum dikenal merupakan kelemahan internal (Weakness), sedangkan banyak pesaing merupakan ancaman eksternal (Threat).",
+                topic: "Analisis SWOT"
+            },
+            {
+                q: "8. Pada analisis 5W+1H, pertanyaan 'kapan akan memulai usaha' merupakan unsur ...",
+                opts: ["What", "Why", "When", "Where"],
+                ans: 2,
+                exp: "When merujuk pada ketepatan waktu/timeline.",
+                topic: "Analisis 5W+1H"
+            },
+            {
+                q: "9. Berikut yang BUKAN faktor dalam Porter's Five Forces adalah ...",
+                opts: ["Ancaman produk pengganti", "Kekuatan tawar pembeli", "Ancaman pendatang baru", "Jumlah karyawan di perusahaan"],
+                ans: 3,
+                exp: "Jumlah karyawan merupakan struktur internal, bukan salah satu dari 5 kekuatan persaingan industri Porter.",
+                topic: "Porter Five Forces"
+            },
+            {
+                q: "10. Payback period dihitung dengan rumus ...",
+                opts: [
+                    "Total investasi / keuntungan per bulan",
+                    "Keuntungan per bulan / total investasi",
+                    "Total penerimaan / biaya operasional",
+                    "Biaya tetap / biaya variabel"
+                ],
+                ans: 0,
+                exp: "Payback period mengukur seberapa cepat modal awal kembali dari keuntungan bulanan.",
+                topic: "Studi Kelayakan Keuangan"
+            },
+
+            // --- 10 Advanced Higher-Level Questions ---
+            {
+                q: "11. Sebuah studio DKV membeli kamera seharga Rp 12.000.000 dengan estimasi masa pakai 24 bulan. Berapakah beban penyusutan alat per bulan?",
+                opts: ["Rp 500.000", "Rp 600.000", "Rp 400.000", "Rp 1.000.000"],
+                ans: 0,
+                exp: "Penyusutan = Harga Alat / Masa Pakai = 12.000.000 / 24 = Rp 500.000 per bulan.",
+                topic: "Studi Kelayakan Keuangan"
+            },
+            {
+                q: "12. Tim DKV memilih pendekatan 'pelanggan' ketimbang 'produk' saat merintis usaha. Contoh tindakan yang mencerminkan pendekatan ini adalah ...",
+                opts: [
+                    "Mensurvei UMKM sekitar untuk mengetahui kebutuhan desain kemasan mereka",
+                    "Membeli mesin cetak termahal lalu menawarkan cetakan tanpa riset",
+                    "Membuat logo sesuai keinginan desainer tanpa bertanya briefs klien",
+                    "Menunggu bantuan alat gratis dari sekolah baru membuka studio"
+                ],
+                ans: 0,
+                exp: "Pendekatan pelanggan berfokus pada analisis kebutuhan dan masalah calon pembeli terlebih dahulu.",
+                topic: "Analisis Peluang Usaha"
+            },
+            {
+                q: "13. Jasa fotografi katalog DKV memiliki sifat 'Variability'. Solusi paling tepat untuk menjaga standar kualitas adalah ...",
+                opts: [
+                    "Menyusun Standard Operating Procedure (SOP) pengerjaan & lighting foto",
+                    "Menolak semua pesanan dari UMKM kecil",
+                    "Menaikkan harga foto setinggi mungkin",
+                    "Mengganti fotografer setiap hari tanpa pelatihan"
+                ],
+                ans: 0,
+                exp: "SOP dapat meminimalkan variasi kualitas jasa agar tetap terstandarisasi.",
+                topic: "Ciri Produk Jasa"
+            },
+            {
+                q: "14. Strategi WO (Weakness-Opportunity) dalam matriks SWOT bertujuan untuk ...",
+                opts: [
+                    "Meminimalkan kelemahan internal dengan memanfaatkan peluang eksternal",
+                    "Menggunakan kekuatan untuk menciptakan peluang baru",
+                    "Menggunakan kekuatan untuk menghindari ancaman",
+                    "Menutup usaha karena banyaknya ancaman pasar"
+                ],
+                ans: 0,
+                exp: "Strategi WO memperbaiki kelemahan internal agar dapat menangkap peluang eksternal yang ada.",
+                topic: "Analisis SWOT"
+            },
+            {
+                q: "15. Usaha cetak sablon mengalami kenaikan harga tinta & kertas sebesar 15%. Biaya dalam studi kelayakan yang langsung melonjak adalah ...",
+                opts: ["Biaya variabel", "Biaya penyusutan alat", "Biaya sewa tempat", "Gaji tetap karyawan"],
+                ans: 0,
+                exp: "Bahan baku baku cetak termasuk biaya variabel yang berubah searah dengan produksi dan harga bahan.",
+                topic: "Studi Kelayakan Keuangan"
+            },
+            {
+                q: "16. Sebuah usaha memiliki total investasi Rp 10.000.000 dan keuntungan bersih Rp 2.000.000/bulan. Berapa Payback Period usaha tersebut?",
+                opts: ["5 Bulan", "10 Bulan", "2 Bulan", "2,5 Bulan"],
+                ans: 0,
+                exp: "Payback Period = Total Investasi / Keuntungan Bersih = 10.000.000 / 2.000.000 = 5 Bulan.",
+                topic: "Studi Kelayakan Keuangan"
+            },
+            {
+                q: "17. Munculnya aplikasi desain kecerdasan buatan (AI) otomatis bagi usaha jasa desain manual tergolong dalam Porter's Five Forces sebagai ...",
+                opts: [
+                    "Ancaman produk pengganti (substitute)",
+                    "Kekuatan tawar pemasok",
+                    "Persaingan antarkaryawan internal",
+                    "Kebutuhan primer"
+                ],
+                ans: 0,
+                exp: "Aplikasi AI merupakan teknologi alternatif yang menawarkan fungsi serupa (produk/jasa pengganti).",
+                topic: "Porter Five Forces"
+            },
+            {
+                q: "18. Jika suatu usaha memiliki penerimaan Rp 5.000.000 dan total biaya operasional Rp 5.500.000, maka kesimpulan kelayakannya adalah ...",
+                opts: [
+                    "Usaha belum layak (rugi Rp 500.000) dan perlu perbaikan rencana",
+                    "Usaha sangat layak karena penerimaan tinggi",
+                    "Modal akan kembali dalam 1 bulan",
+                    "Biaya variabel harus dinaikkan dua kali lipat"
+                ],
+                ans: 0,
+                exp: "Penerimaan lebih kecil dari biaya operasional menghasilkan kerugian sehingga usaha tidak layak.",
+                topic: "Studi Kelayakan Keuangan"
+            },
+            {
+                q: "19. Tahap pengembangan produk DKV setelah menemukan ide dan menyusun spesifikasi produk adalah ...",
+                opts: ["Ulasan desain dan pengujian pasar (test market)", "Penjualan masal langsung", "Penutupan usaha", "Pembelian mesin cetak pabrik"],
+                ans: 0,
+                exp: "Setelah spesifikasi produk dirancang, langkah selanjutnya adalah ulasan desain dan pengujian sampel di pasar.",
+                topic: "Tahapan Pengembangan Produk"
+            },
+            {
+                q: "20. Ciri khas utama dari 'Specialty Goods' dalam kategori produk konsumen adalah ...",
+                opts: [
+                    "Konsumen bersedia berusaha khusus karena merek/keunikan tinggi",
+                    "Dibeli secara spontan di toko kelontong tanpa pertimbangan",
+                    "Tidak pernah dicari orang sama sekali",
+                    "Hanya berupa barang tidak tahan lama"
+                ],
+                ans: 0,
+                exp: "Specialty goods memiliki identitas/merek khas sehingga konsumen rela mengeluarkan usaha ekstra untuk membelinya.",
+                topic: "Klasifikasi Produk"
+            }
+        ];
+
+        // Format Currency Helper
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            setLogo(LOGO_SRC);
+            renderNavigation();
+            initDiagnosticQuiz();
+            initModule3Activities();
+            initLabSimulation();
+            setupRandomQuiz();
+            initReflectionRating();
+            updateOverallProgress();
+            
+            const today = new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            const dateStamp = document.getElementById('print-date-stamp');
+            if(dateStamp) dateStamp.innerText = today;
+        });
+
+        function updateStudentIdentity() {
+            state.studentName = document.getElementById('input-student-name').value.trim();
+            state.studentTeam = document.getElementById('input-student-team').value.trim();
+            document.getElementById('nav-student-name').innerText = state.studentName || 'Tamu';
+            document.getElementById('header-user-badge').style.display = state.studentName ? 'inline-block' : 'none';
+            document.getElementById('sum-student-name').innerText = state.studentName || '-';
+            document.getElementById('sum-student-team').innerText = state.studentTeam || '-';
+        }
+
+        function renderNavigation() {
+            const desktopNav = document.getElementById('desktop-nav-list');
+            const mobileNav = document.getElementById('mobile-nav-list');
+            desktopNav.innerHTML = '';
+            mobileNav.innerHTML = '';
+
+            modules.forEach((m) => {
+                const isActive = state.currentModule === m.id;
+                const activeClass = isActive 
+                    ? 'bg-brandDark text-white shadow-sm' 
+                    : 'text-gray-700 hover:bg-gray-100';
+
+                const btnHtml = `
+                    <button onclick="goToModule(${m.id})" class="w-full text-left px-3 py-2.5 rounded-xl transition flex items-center space-x-2.5 ${activeClass}">
+                        <span class="text-base">${m.icon}</span>
+                        <span class="truncate">${m.title}</span>
+                    </button>
+                `;
+                desktopNav.innerHTML += btnHtml;
+                mobileNav.innerHTML += btnHtml;
+            });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function goToModule(modId) {
+            if (modId < 0 || modId >= modules.length) return;
+            state.currentModule = modId;
+            document.querySelectorAll('.module-section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById(`module-${modId}`).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            renderNavigation();
+            updateOverallProgress();
+
+            if (modId === 7) updateFinalSummaryReport();
+        }
+
+        function updateOverallProgress() {
+            const percentage = Math.round((state.currentModule / (modules.length - 1)) * 100);
+            document.getElementById('overall-progress-bar').style.width = `${percentage}%`;
+        }
+
+        // --- MODUL 1 APPERCEPTION LOGIC ---
+        function checkApperception(choice) {
+            const fbBox = document.getElementById('apperception-feedback');
+            fbBox.classList.remove('hidden', 'bg-emerald-50', 'bg-rose-50', 'bg-amber-50', 'text-emerald-900', 'text-rose-900', 'text-amber-900');
+
+            if (choice === 'A') {
+                fbBox.classList.add('bg-rose-50', 'text-rose-900');
+                fbBox.innerHTML = `<strong>Umpan Balik (Pilihan A):</strong> Tindakan ini sangat berisiko! Langsung membeli alat dan produksi massal tanpa riset pasar seperti Dita berpotensi menyebabkan merchandise tidak laku dan modal habis terbuang.`;
+            } else if (choice === 'B') {
+                fbBox.classList.add('bg-emerald-50', 'text-emerald-900');
+                fbBox.innerHTML = `<strong>Umpan Balik (Pilihan B - TEPAT!):</strong> Langkah yang sangat cerdas! Raka melakukan riset peluang dan studi kelayakan terlebih dahulu sehingga risiko usaha terukur dan keputusan berbasis data riil.`;
+            } else {
+                fbBox.classList.add('bg-amber-50', 'text-amber-900');
+                fbBox.innerHTML = `<strong>Umpan Balik (Pilihan C):</strong> Meniru tanpa pemahaman kebutuhan pelanggan hanya membuat produkmu tidak memiliki keunggulan bersaing.`;
+            }
+        }
+
+        // --- MODUL 2 DIAGNOSTIC QUIZ LOGIC ---
+        const diagnosticQuestions = [
+            {
+                q: "1. Wirausaha adalah orang yang ...",
+                opts: [
+                    "A. Mampu menjalankan usaha dengan memperhitungkan risikonya",
+                    "B. Hanya bekerja pada perusahaan besar",
+                    "C. Menghindari semua risiko usaha",
+                    "D. Menunggu pesanan tanpa merencanakan usaha"
+                ],
+                ans: 0,
+                topic: "Konsep Wirausaha"
+            },
+            {
+                q: "2. Servis laptop termasuk produk ...",
+                opts: ["A. Barang tahan lama", "B. Barang tidak tahan lama", "C. Jasa", "D. Bahan baku"],
+                ans: 2,
+                topic: "Klasifikasi Produk"
+            },
+            {
+                q: "3. Kebutuhan pokok atau utama disebut kebutuhan ...",
+                opts: ["A. Primer", "B. Sekunder", "C. Tersier", "D. Mewah"],
+                ans: 0,
+                topic: "Tingkat Kebutuhan"
+            },
+            {
+                q: "4. Langkah yang tepat sebelum memulai usaha adalah ...",
+                opts: [
+                    "A. Langsung membeli peralatan",
+                    "B. Menganalisis peluang dan melakukan riset pasar",
+                    "C. Menunggu modal besar",
+                    "D. Meniru usaha teman tanpa riset"
+                ],
+                ans: 1,
+                topic: "Analisis Peluang Usaha"
+            },
+            {
+                q: "5. Keuntungan usaha dihitung dengan ...",
+                opts: [
+                    "A. Penerimaan - Biaya",
+                    "B. Penerimaan + Biaya",
+                    "C. Biaya - Penerimaan",
+                    "D. Penerimaan x Biaya"
+                ],
+                ans: 0,
+                topic: "Studi Kelayakan Keuangan"
+            }
+        ];
+
+        let diagIdx = 0;
+        function initDiagnosticQuiz() {
+            diagIdx = 0;
+            state.initialAssessmentAnswers = Array(5).fill(null);
+            renderDiagnosticQuestion();
+        }
+
+        function renderDiagnosticQuestion() {
+            const container = document.getElementById('diagnostic-quiz-container');
+            const indicator = document.getElementById('diagnostic-step-indicator');
+            const resultBox = document.getElementById('diagnostic-result-box');
+            const nextBtn = document.getElementById('diagnostic-next-btn');
+
+            if (diagIdx < 5) {
+                indicator.innerText = `Soal ${diagIdx + 1} dari 5`;
+                resultBox.classList.add('hidden');
+                container.classList.remove('hidden');
+                nextBtn.classList.remove('hidden');
+
+                const item = diagnosticQuestions[diagIdx];
+                container.innerHTML = `
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-brandDark text-base">${item.q}</h3>
+                        <div class="space-y-2">
+                            ${item.opts.map((opt, i) => `
+                                <button onclick="selectDiagnosticOpt(${i})" class="w-full text-left p-3.5 rounded-xl border font-semibold text-sm transition ${state.initialAssessmentAnswers[diagIdx] === i ? 'bg-brandDark text-white border-brandDark' : 'hover:bg-gray-50 bg-white'}">
+                                    ${opt}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else {
+                indicator.innerText = `Asesmen Selesai`;
+                container.classList.add('hidden');
+                nextBtn.classList.add('hidden');
+                resultBox.classList.remove('hidden');
+
+                const summaryList = document.getElementById('diagnostic-summary-list');
+                summaryList.innerHTML = '';
+                diagnosticQuestions.forEach((q, idx) => {
+                    const isCorrect = state.initialAssessmentAnswers[idx] === q.ans;
+                    summaryList.innerHTML += `
+                        <div class="p-3 rounded-lg border flex justify-between items-center ${isCorrect ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-rose-50 border-rose-200 text-rose-900'}">
+                            <span>Topik: <strong>${q.topic}</strong></span>
+                            <span class="font-bold">${isCorrect ? '✓ Paham' : '⚠️ Perlu Diperkuat'}</span>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        function selectDiagnosticOpt(optIdx) {
+            state.initialAssessmentAnswers[diagIdx] = optIdx;
+            renderDiagnosticQuestion();
+        }
+
+        function nextDiagnosticQuestion() {
+            if (state.initialAssessmentAnswers[diagIdx] === null) {
+                alert("Pilihlah salah satu jawaban sebelum melanjutkan!");
+                return;
+            }
+            diagIdx++;
+            renderDiagnosticQuestion();
+        }
+
+        // --- MODUL 3 INTERACTIVE CONTENT LOGIC ---
+        function switchTabM3(tabKey) {
+            document.querySelectorAll('.m3-tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('[id^="btn-tab"]').forEach(b => {
+                b.classList.remove('border-brandDark', 'text-brandDark');
+                b.classList.add('border-transparent', 'text-gray-500');
+            });
+
+            document.getElementById(`content-${tabKey}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`btn-${tabKey}`);
+            activeBtn.classList.remove('border-transparent', 'text-gray-500');
+            activeBtn.classList.add('border-brandDark', 'text-brandDark');
+        }
+
+        function initModule3Activities() {
+            const matchingData = [
+                { scenario: "Membuat desain ilustrasi kemasan unik yang belum pernah ada", ans: "Berani Berkreasi" },
+                { scenario: "Menyelesaikan desain logo pesanan klien tepat waktu deadline", ans: "Disiplin" },
+                { scenario: "Membeli mesin cetak baru dengan perhitungan risiko terukur", ans: "Berani Mengambil Risiko" },
+                { scenario: "Menggabungkan kaos cetak dengan filter Instagram AR interaktif", ans: "Kreatif & Inovatif" }
+            ];
+            const matchingContainer = document.getElementById('mini-matching-list');
+            if (matchingContainer) {
+                matchingContainer.innerHTML = matchingData.map((item, idx) => `
+                    <div class="bg-white p-3 rounded-lg border flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <span class="text-xs font-semibold text-gray-700">${idx+1}. ${item.scenario}</span>
+                        <select id="match-opt-${idx}" onchange="checkMatchingActivity(${idx}, '${item.ans}')" class="p-1.5 border rounded text-xs font-bold bg-gray-50">
+                            <option value="">-- Pilih Perilaku --</option>
+                            <option value="Berani Berkreasi">Berani Berkreasi</option>
+                            <option value="Berani Mengambil Risiko">Berani Mengambil Risiko</option>
+                            <option value="Disiplin">Disiplin</option>
+                            <option value="Kreatif & Inovatif">Kreatif & Inovatif</option>
+                        </select>
+                    </div>
+                `).join('');
+            }
+
+            const prodItems = [
+                { name: "Sabun mandi", cat: "Convenience goods" },
+                { name: "Laptop DKV", cat: "Shopping goods" },
+                { name: "Mobil mewah", cat: "Specialty goods" },
+                { name: "Asuransi jiwa", cat: "Unsought goods" },
+                { name: "Kain mentah untuk pabrik garmen", cat: "Bahan baku dan suku cadang" },
+                { name: "Mesin cetak sablon", cat: "Barang modal" },
+                { name: "Alat tulis kantor", cat: "Perlengkapan dan layanan bisnis" },
+                { name: "Jasa servis laptop", cat: "Jasa" }
+            ];
+            const game1Container = document.getElementById('game-product-list');
+            if(game1Container) {
+                game1Container.innerHTML = prodItems.map((p, i) => `
+                    <div class="bg-white p-3 rounded-lg border space-y-1">
+                        <span class="font-bold text-brandDark block">${p.name}</span>
+                        <select id="g1-item-${i}" onchange="checkGame1Item(${i}, '${p.cat}')" class="w-full p-1 border rounded text-[11px]">
+                            <option value="">-- Pilih Kategori --</option>
+                            <option value="Convenience goods">Convenience goods</option>
+                            <option value="Shopping goods">Shopping goods</option>
+                            <option value="Specialty goods">Specialty goods</option>
+                            <option value="Unsought goods">Unsought goods</option>
+                            <option value="Bahan baku dan suku cadang">Bahan baku & suku cadang</option>
+                            <option value="Barang modal">Barang modal</option>
+                            <option value="Perlengkapan dan layanan bisnis">Perlengkapan bisnis</option>
+                            <option value="Jasa">Jasa</option>
+                        </select>
+                    </div>
+                `).join('');
+            }
+
+            const needsItems = [
+                { name: "Makan sehari-hari", cat: "primer" },
+                { name: "Paket internet untuk belajar", cat: "sekunder" },
+                { name: "Perhiasan emas", cat: "tersier" }
+            ];
+            const game2Container = document.getElementById('game-needs-list');
+            if(game2Container) {
+                game2Container.innerHTML = needsItems.map((n, i) => `
+                    <div class="bg-white p-3 rounded-lg border flex justify-between items-center">
+                        <span class="font-bold text-gray-800">${n.name}</span>
+                        <select id="g2-item-${i}" onchange="checkGame2Item(${i}, '${n.cat}')" class="p-1 border rounded text-xs font-bold">
+                            <option value="">-- Pilih Tingkat Kebutuhan --</option>
+                            <option value="primer">Kebutuhan Primer</option>
+                            <option value="sekunder">Kebutuhan Sekunder</option>
+                            <option value="tersier">Kebutuhan Tersier</option>
+                        </select>
+                    </div>
+                `).join('');
+            }
+
+            const porterData = [
+                { title: "Ancaman Produk Pengganti", q: "Apakah ada produk/jasa alternatif dengan fungsi serupa?", ex: "Stiker fisik digantikan stiker digital GIF WhatsApp." },
+                { title: "Persaingan Antarpesaing Industri", q: "Seberapa banyak pesaing studio sejenis di sekitarmu?", ex: "Persaingan antarstudio foto/cetak lokal di Sidoarjo." },
+                { title: "Kekuatan Tawar Pembeli", q: "Apakah pembeli punya banyak pilihan untuk menawar harga?", ex: "Klien UMKM menawar paket cetak murah." },
+                { title: "Ancaman Pendatang Baru", q: "Seberapa mudah orang lain membuka usaha sejenis?", ex: "Mudah bagi siswa lulusan DKV yang memiliki laptop." },
+                { title: "Kekuatan Tawar Pemasok", q: "Apakah pemasok bahan baku menguasai harga pasar?", ex: "Harga kertas vinyl dan tinta bergantung distributor impor." }
+            ];
+            const porterContainer = document.getElementById('porter-cards-container');
+            if(porterContainer) {
+                porterContainer.innerHTML = porterData.map((item) => `
+                    <details class="bg-gray-50 border rounded-xl p-3 cursor-pointer">
+                        <summary class="font-bold text-brandDark font-rubik">${item.title}</summary>
+                        <div class="pt-2 text-xs text-gray-600 space-y-1">
+                            <p><strong>Pertanyaan Pemantik:</strong> ${item.q}</p>
+                            <p class="text-brandDark"><strong>Contoh Usaha DKV:</strong> ${item.ex}</p>
+                        </div>
+                    </details>
+                `).join('');
+            }
+        }
+
+        function checkMatchingActivity(idx, expected) {
+            const select = document.getElementById(`match-opt-${idx}`);
+            if (select.value === expected) {
+                select.className = "p-1.5 border rounded text-xs font-bold bg-emerald-100 text-emerald-800 border-emerald-300";
+            } else {
+                select.className = "p-1.5 border rounded text-xs font-bold bg-rose-100 text-rose-800 border-rose-300";
+            }
+        }
+
+        function checkGame1Item(idx, expected) {
+            const select = document.getElementById(`g1-item-${idx}`);
+            if (select.value === expected) {
+                select.className = "w-full p-1 border rounded text-[11px] bg-emerald-100 text-emerald-800 font-bold";
+            } else {
+                select.className = "w-full p-1 border rounded text-[11px] bg-rose-100 text-rose-800 font-bold";
+            }
+        }
+
+        function checkGame2Item(idx, expected) {
+            const select = document.getElementById(`g2-item-${idx}`);
+            if (select.value === expected) {
+                select.className = "p-1 border rounded text-xs font-bold bg-emerald-100 text-emerald-800";
+            } else {
+                select.className = "p-1 border rounded text-xs font-bold bg-rose-100 text-rose-800";
+            }
+        }
+
+        function addSwotItem(type) {
+            const input = document.getElementById(`swot-${type.toLowerCase()}-input`);
+            const val = input.value.trim();
+            if(!val) return;
+            state.swotData[type].push(val);
+            input.value = '';
+            renderSwotList(type);
+        }
+
+        function renderSwotList(type) {
+            const ul = document.getElementById(`swot-${type.toLowerCase()}-list`);
+            ul.innerHTML = state.swotData[type].map((item, i) => `
+                <li class="flex justify-between items-center">
+                    <span>${item}</span>
+                    <button onclick="removeSwotItem('${type}', ${i})" class="text-rose-500 font-bold text-xs ml-2">✕</button>
+                </li>
+            `).join('');
+        }
+
+        function removeSwotItem(type, idx) {
+            state.swotData[type].splice(idx, 1);
+            renderSwotList(type);
+        }
+
+        function generateSwotStrategyMatrix() {
+            document.getElementById('swot-matrix-output').classList.remove('hidden');
+        }
+
+        // --- MODUL 4 LAB SIMULATION LOGIC ---
+        function switchLabMode(modeKey) {
+            document.querySelectorAll('.lab-mode-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('[id^="btn-mode"]').forEach(b => {
+                b.classList.remove('border-brandDark', 'text-brandDark');
+                b.classList.add('border-transparent', 'text-gray-500');
+            });
+
+            document.getElementById(`lab-${modeKey}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`btn-${modeKey}`);
+            activeBtn.classList.remove('border-transparent', 'text-gray-500');
+            activeBtn.classList.add('border-brandDark', 'text-brandDark');
+
+            if(modeKey === 'modeA') calcModeA();
+        }
+
+        function initLabSimulation() {
+            calcModeA();
+            initCustomModeCTables();
+        }
+
+        function calcModeA() {
+            const sotoPrice = parseInt(document.getElementById('sld-soto-price').value);
+            const drinkPrice = parseInt(document.getElementById('sld-drink-price').value);
+            const portion = parseInt(document.getElementById('sld-portion').value);
+            const bahanHarian = parseInt(document.getElementById('sld-bahan-harian').value);
+            const sewaTahun = parseInt(document.getElementById('sld-sewa-tahun').value);
+            const gaji = parseInt(document.getElementById('sld-gaji').value);
+
+            document.getElementById('lbl-soto-price').innerText = formatRupiah(sotoPrice);
+            document.getElementById('lbl-drink-price').innerText = formatRupiah(drinkPrice);
+            document.getElementById('lbl-portion').innerText = `${portion} Porsi`;
+            document.getElementById('lbl-bahan-harian').innerText = formatRupiah(bahanHarian);
+            document.getElementById('lbl-sewa-tahun').innerText = formatRupiah(sewaTahun);
+            document.getElementById('lbl-gaji').innerText = formatRupiah(gaji);
+
+            const totalInvestasi = 13800000;
+            const totalPenyusutan = (3000000/36) + (3000000/12) + (2500000/12) + (5000000/36) + (300000/12);
+            const biayaTetapLain = (sewaTahun / 12) + gaji;
+            const totalBiayaTetap = totalPenyusutan + biayaTetapLain;
+
+            const bahanBerasListrik = (bahanHarian * 30) + (7 * 4000 * 30) + 400000 + 50000;
+            const totalBiayaVariabel = bahanBerasListrik;
+
+            const totalBiayaOperasional = totalBiayaTetap + totalBiayaVariabel;
+
+            const penerimaanSoto = sotoPrice * portion * 30;
+            const penerimaanMinum = drinkPrice * portion * 30;
+            const totalPenerimaan = penerimaanSoto + penerimaanMinum;
+
+            const keuntungan = totalPenerimaan - totalBiayaOperasional;
+            const paybackPeriod = keuntungan > 0 ? (totalInvestasi / keuntungan) : 0;
+
+            document.getElementById('resA-investasi').innerText = formatRupiah(totalInvestasi);
+            document.getElementById('resA-operasional').innerText = formatRupiah(totalBiayaOperasional);
+            document.getElementById('resA-laba').innerText = formatRupiah(keuntungan);
+            
+            const pbLabel = document.getElementById('resA-payback');
+            if (keuntungan > 0) {
+                pbLabel.innerText = `${paybackPeriod.toFixed(2)} Bulan`;
+                pbLabel.className = "font-extrabold text-amber-800 text-base";
+            } else {
+                pbLabel.innerText = "Usaha belum layak (rugi), perbaiki rencana";
+                pbLabel.className = "font-bold text-rose-600 text-xs";
+            }
+
+            renderSVGChartA(totalBiayaTetap, totalBiayaVariabel, totalPenerimaan);
+            renderInterpretationA(keuntungan, paybackPeriod);
+        }
+
+        function testScenarioModeA(type) {
+            if (type === 'bahanUp') {
+                const cur = parseInt(document.getElementById('sld-bahan-harian').value);
+                document.getElementById('sld-bahan-harian').value = Math.round(cur * 1.1);
+            } else if (type === 'porsiDown') {
+                const cur = parseInt(document.getElementById('sld-portion').value);
+                document.getElementById('sld-portion').value = Math.round(cur * 0.8);
+            } else if (type === 'sewa12m') {
+                document.getElementById('sld-sewa-tahun').value = 12000000;
+            }
+            calcModeA();
+        }
+
+        function resetModeA() {
+            document.getElementById('sld-soto-price').value = 6000;
+            document.getElementById('sld-drink-price').value = 2000;
+            document.getElementById('sld-portion').value = 50;
+            document.getElementById('sld-bahan-harian').value = 150000;
+            document.getElementById('sld-sewa-tahun').value = 25000000;
+            document.getElementById('sld-gaji').value = 700000;
+            calcModeA();
+        }
+
+        function renderSVGChartA(fixed, variable, revenue) {
+            const container = document.getElementById('svg-chart-container-A');
+            const maxVal = Math.max(fixed + variable, revenue, 1);
+            const hFixed = Math.round((fixed / maxVal) * 120);
+            const hVar = Math.round((variable / maxVal) * 120);
+            const hRev = Math.round((revenue / maxVal) * 120);
+
+            container.innerHTML = `
+                <div class="flex flex-col items-center gap-1">
+                    <span class="text-[10px] font-bold text-gray-600">${formatRupiah(fixed)}</span>
+                    <div class="w-12 bg-blue-500 rounded-t-md transition-all duration-300" style="height: ${hFixed}px"></div>
+                    <span class="text-[10px] font-bold text-gray-700">Biaya Tetap</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <span class="text-[10px] font-bold text-gray-600">${formatRupiah(variable)}</span>
+                    <div class="w-12 bg-amber-500 rounded-t-md transition-all duration-300" style="height: ${hVar}px"></div>
+                    <span class="text-[10px] font-bold text-gray-700">Biaya Variabel</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <span class="text-[10px] font-bold text-gray-600">${formatRupiah(revenue)}</span>
+                    <div class="w-12 bg-emerald-500 rounded-t-md transition-all duration-300" style="height: ${hRev}px"></div>
+                    <span class="text-[10px] font-bold text-gray-700">Penerimaan</span>
+                </div>
+            `;
+        }
+
+        function renderInterpretationA(laba, payback) {
+            const box = document.getElementById('interpretation-box-A');
+            if (laba > 0) {
+                box.className = "p-4 rounded-xl text-xs leading-relaxed font-semibold bg-emerald-50 border border-emerald-200 text-emerald-900";
+                box.innerHTML = `💡 <strong>Interpretasi Otomatis:</strong> Usaha Soto Ibu Winne berada dalam kondisi <strong>LAYAK (UNTUNG)</strong> dengan laba operasional sebesar <strong>${formatRupiah(laba)}</strong>/bulan. Seluruh modal investasi awal akan balik modal sepenuhnya dalam waktu sekitar <strong>${payback.toFixed(1)} bulan</strong>.`;
+            } else {
+                box.className = "p-4 rounded-xl text-xs leading-relaxed font-semibold bg-rose-50 border border-rose-200 text-rose-900";
+                box.innerHTML = `⚠️ <strong>Interpretasi Otomatis:</strong> Usaha belum layak (rugi), perbaiki rencana. Total biaya operasional lebih besar dari penerimaan!`;
+            }
+        }
+
+        let customData = {
+            equip: [{ name: "Kamera / Laptop", price: 6000000, life: 24 }],
+            fixed: [{ desc: "Listrik & Internet", val: 200000 }],
+            var: [{ desc: "Bahan Baku / Cetak", val: 500000 }],
+            rev: [{ name: "Paket Jasa Utama", price: 300000, qty: 10 }]
+        };
+
+        function initCustomModeCTables() {
+            renderCustomTable('equip');
+            renderCustomTable('fixed');
+            renderCustomTable('var');
+            renderCustomTable('rev');
+        }
+
+        function renderCustomTable(type) {
+            if (type === 'equip') {
+                const tbody = document.querySelector('#tbl-custom-equip tbody');
+                tbody.innerHTML = customData.equip.map((item, i) => `
+                    <tr>
+                        <td class="p-1 border"><input type="text" value="${item.name}" onchange="customData.equip[${i}].name=this.value" class="w-full p-1 border rounded"></td>
+                        <td class="p-1 border"><input type="number" value="${item.price}" onchange="customData.equip[${i}].price=Math.max(0, parseInt(this.value)||0)" class="w-full p-1 border rounded"></td>
+                        <td class="p-1 border"><input type="number" value="${item.life}" onchange="customData.equip[${i}].life=Math.max(1, parseInt(this.value)||1)" class="w-full p-1 border rounded"></td>
+                        <td class="p-1 border text-center"><button onclick="removeCustomRow('equip', ${i})" class="text-rose-500 font-bold">✕</button></td>
+                    </tr>
+                `).join('');
+            } else if (type === 'fixed') {
+                const tbody = document.querySelector('#tbl-custom-fixed tbody');
+                tbody.innerHTML = customData.fixed.map((item, i) => `
+                    <tr>
+                        <td class="p-1 border"><input type="text" value="${item.desc}" onchange="customData.fixed[${i}].desc=this.value" class="w-full p-1 border rounded"></td>
+                        <td class="p-1 border"><input type="number" value="${item.val}" onchange="customData.fixed[${i}].val=Math.max(0, parseInt(this.value)||0)" class="w-full p-1 border rounded"></td>
+                        <td class="p-1 border text-center"><button onclick="removeCustomRow('fixed', ${i})" class="text-rose-500 font-bold">✕</button></td>
+                    </tr>
+                `).join('');
+            } else if (type === 'var') {
+                const tbody = document.querySelector('#tbl-custom-var tbody');
+                tbody.innerHTML = customData.var.map((item, i) => `
+                    <tr>
+                        <td class="p-1 border"><input type="text" value="${item.desc}" onchange="customData.var[${i}].desc=this.value" class="w-full p-1 border rounded"></td>
+                        <td class="p-1 border"><input type="number" value="${item.val}" onchange="customData.var[${i}].val=Math.max(0, parseInt(this.value)||0)" class="w-full p-1 border rounded"></td>
+                        <td class="p-1 border text-center"><button onclick="removeCustomRow('var', ${i})" class="text-rose-500 font-bold">✕</button></td>
+                    </tr>
+                `).join('');
+            } else if (type === 'rev') {
+                const tbody = document.querySelector('#tbl-custom-rev tbody');
+                tbody.innerHTML = customData.rev.map((item, i) => `
+                    <tr>
+                        <td class="p-1 border"><input type="text" value="${item.name}" onchange="customData.rev[${i}].name=this.value" class="w-full p-1 border rounded"></td>
+                        <td class="p-1 border"><input type="number" value="${item.price}" onchange="customData.rev[${i}].price=Math.max(0, parseInt(this.value)||0)" class="w-full p-1 border rounded"></td>
+                        <td class="p-1 border"><input type="number" value="${item.qty}" onchange="customData.rev[${i}].qty=Math.max(0, parseInt(this.value)||0)" class="w-full p-1 border rounded"></td>
+                        <td class="p-1 border text-center"><button onclick="removeCustomRow('rev', ${i})" class="text-rose-500 font-bold">✕</button></td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function addCustomRow(type) {
+            if(type==='equip') customData.equip.push({name:"Alat Baru", price:1000000, life:12});
+            if(type==='fixed') customData.fixed.push({desc:"Biaya Tetap", val:100000});
+            if(type==='var') customData.var.push({desc:"Biaya Bahan", val:100000});
+            if(type==='rev') customData.rev.push({name:"Produk Baru", price:50000, qty:10});
+            renderCustomTable(type);
+        }
+
+        function removeCustomRow(type, idx) {
+            customData[type].splice(idx, 1);
+            renderCustomTable(type);
+        }
+
+        function calculateCustomModeC() {
+            let totalInv = 0;
+            let totalPenyusutan = 0;
+            customData.equip.forEach(e => {
+                totalInv += e.price;
+                totalPenyusutan += (e.life > 0 ? e.price / e.life : 0);
+            });
+
+            let totalFixed = totalPenyusutan;
+            customData.fixed.forEach(f => totalFixed += f.val);
+
+            let totalVar = 0;
+            customData.var.forEach(v => totalVar += v.val);
+
+            const totalOp = totalFixed + totalVar;
+
+            let totalPenerimaan = 0;
+            customData.rev.forEach(r => totalPenerimaan += (r.price * r.qty));
+
+            const laba = totalPenerimaan - totalOp;
+            const payback = laba > 0 ? (totalInv / laba) : 0;
+
+            document.getElementById('custom-output-box').classList.remove('hidden');
+            document.getElementById('c-res-inv').innerText = formatRupiah(totalInv);
+            document.getElementById('c-res-op').innerText = formatRupiah(totalOp);
+            document.getElementById('c-res-laba').innerText = formatRupiah(laba);
+            document.getElementById('c-res-payback').innerText = laba > 0 ? `${payback.toFixed(1)} Bulan` : "Usaha belum layak (rugi), perbaiki rencana";
+        }
+
+        // --- RANDOMIZED QUIZ LOGIC (PICK 10 OF 20) ---
+        function setupRandomQuiz() {
+            // Shuffle 20 pool questions
+            const shuffledPool = [...fullQuizQuestionPool].sort(() => Math.random() - 0.5);
+            // Select first 10
+            const selected10 = shuffledPool.slice(0, 10);
+
+            // Shuffle options for each selected question
+            state.activeQuizQuestions = selected10.map((q) => {
+                const optionsObj = q.opts.map((opt, origIdx) => ({ text: opt, isCorrect: origIdx === q.ans }));
+                optionsObj.sort(() => Math.random() - 0.5);
+
+                const newAnsIdx = optionsObj.findIndex(o => o.isCorrect);
+                return {
+                    q: q.q,
+                    opts: optionsObj.map(o => o.text),
+                    ans: newAnsIdx,
+                    exp: q.exp,
+                    topic: q.topic
+                };
+            });
+
+            state.quizAnswers = Array(10).fill(null);
+            state.quizCurrentIdx = 0;
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            const card = document.getElementById('quiz-question-card');
+            const indicator = document.getElementById('quiz-step-indicator');
+            const board = document.getElementById('quiz-summary-board');
+            const nextBtn = document.getElementById('quiz-next-btn');
+
+            if (state.quizCurrentIdx < 10) {
+                indicator.innerText = `Soal ${state.quizCurrentIdx + 1} dari 10`;
+                board.classList.add('hidden');
+                card.classList.remove('hidden');
+                nextBtn.classList.remove('hidden');
+
+                const item = state.activeQuizQuestions[state.quizCurrentIdx];
+                const userAns = state.quizAnswers[state.quizCurrentIdx];
+
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold bg-brandLight text-brandDark px-2.5 py-1 rounded-md">Topik: ${item.topic}</span>
+                        <h3 class="font-bold text-brandDark text-base leading-relaxed">${item.q}</h3>
+                        <div class="space-y-2">
+                            ${item.opts.map((opt, i) => `
+                                <button onclick="selectQuizOption(${i})" class="w-full text-left p-3.5 rounded-xl border font-semibold text-sm transition ${userAns === i ? 'bg-brandDark text-white border-brandDark' : 'hover:bg-gray-50 bg-white'}">
+                                    ${opt}
+                                </button>
+                            `).join('')}
+                        </div>
+                        ${userAns !== null ? `
+                            <div class="p-4 rounded-xl text-xs leading-relaxed font-semibold mt-3 ${userAns === item.ans ? 'bg-emerald-50 text-emerald-900 border border-emerald-200' : 'bg-rose-50 text-rose-900 border border-rose-200'}">
+                                ${userAns === item.ans ? '✅ Benar!' : '❌ Kurang Tepat!'} ${item.exp}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            } else {
+                indicator.innerText = `Kuis Selesai`;
+                card.classList.add('hidden');
+                nextBtn.classList.add('hidden');
+                board.classList.remove('hidden');
+
+                let scoreCount = 0;
+                const failedTopics = [];
+                state.activeQuizQuestions.forEach((q, idx) => {
+                    if (state.quizAnswers[idx] === q.ans) {
+                        scoreCount++;
+                    } else {
+                        failedTopics.push(q.topic);
+                    }
+                });
+
+                document.getElementById('quiz-final-score').innerText = `${scoreCount} / 10`;
+                const fbText = document.getElementById('quiz-feedback-text');
+                if (scoreCount >= 8) {
+                    fbText.innerText = "Sangat Luar Biasa! Kamu menguasai analisis kelayakan & konsep wirausaha DKV dengan mantap!";
+                } else if (scoreCount >= 6) {
+                    fbText.innerText = "Cukup baik! Pelajari kembali beberapa topik yang belum tepat di bawah ini.";
+                } else {
+                    fbText.innerText = "Tetap semangat! Disarankan membaca kembali Modul 3 sebelum ujian.";
+                }
+
+                const failedBox = document.getElementById('quiz-failed-topics-box');
+                const failedList = document.getElementById('quiz-failed-topics-list');
+                const retryBtn = document.getElementById('retry-failed-btn');
+
+                if (failedTopics.length > 0) {
+                    failedBox.classList.remove('hidden');
+                    failedList.innerHTML = [...new Set(failedTopics)].map(t => `<li>${t}</li>`).join('');
+                    retryBtn.classList.remove('hidden');
+                } else {
+                    failedBox.classList.add('hidden');
+                    retryBtn.classList.add('hidden');
+                }
+            }
+        }
+
+        function selectQuizOption(optIdx) {
+            state.quizAnswers[state.quizCurrentIdx] = optIdx;
+            renderQuizQuestion();
+        }
+
+        function nextQuizQuestion() {
+            if (state.quizAnswers[state.quizCurrentIdx] === null) {
+                alert("Pilihlah salah satu jawaban sebelum melanjutkan!");
+                return;
+            }
+            state.quizCurrentIdx++;
+            renderQuizQuestion();
+        }
+
+        function resetFullQuiz() {
+            setupRandomQuiz();
+        }
+
+        function retryFailedQuiz() {
+            for (let i = 0; i < 10; i++) {
+                if (state.quizAnswers[i] !== state.activeQuizQuestions[i].ans) {
+                    state.quizAnswers[i] = null;
+                }
+            }
+            state.quizCurrentIdx = state.quizAnswers.findIndex(a => a === null);
+            if (state.quizCurrentIdx === -1) state.quizCurrentIdx = 0;
+            renderQuizQuestion();
+        }
+
+        // --- MODUL 6 CASE STUDY EVALUATION LOGIC ---
+        function evaluateCaseStudy() {
+            const targetInv = 9000000;
+            const targetPeny = 350000;
+            const targetBT = 800000;
+            const targetBV = 2500000;
+            const targetOp = 3300000;
+            const targetPen = 4500000;
+            const targetLaba = 1200000;
+            const targetPayback = 7.5;
+
+            const targetScenLaba = 980000;
+            const targetScenPayback = 9.18;
+
+            const valInv = parseFloat(document.getElementById('cs-calc-inv').value) || 0;
+            const valPeny = parseFloat(document.getElementById('cs-calc-peny').value) || 0;
+            const valBT = parseFloat(document.getElementById('cs-calc-bt').value) || 0;
+            const valBV = parseFloat(document.getElementById('cs-calc-bv').value) || 0;
+            const valOp = parseFloat(document.getElementById('cs-calc-op').value) || 0;
+            const valPen = parseFloat(document.getElementById('cs-calc-pen').value) || 0;
+            const valLaba = parseFloat(document.getElementById('cs-calc-laba').value) || 0;
+            const valPayback = parseFloat(document.getElementById('cs-calc-payback').value) || 0;
+
+            const valScenLaba = parseFloat(document.getElementById('cs-scen-laba').value) || 0;
+            const valScenPayback = parseFloat(document.getElementById('cs-scen-payback').value) || 0;
+
+            function checkTol(val, target) {
+                return Math.abs(val - target) <= (target * 0.015);
+            }
+
+            const checks = [
+                checkTol(valInv, targetInv),
+                checkTol(valPeny, targetPeny),
+                checkTol(valBT, targetBT),
+                checkTol(valBV, targetBV),
+                checkTol(valOp, targetOp),
+                checkTol(valPen, targetPen),
+                checkTol(valLaba, targetLaba),
+                checkTol(valPayback, targetPayback),
+                checkTol(valScenLaba, targetScenLaba),
+                checkTol(valScenPayback, targetScenPayback)
+            ];
+
+            const correctCount = checks.filter(Boolean).length;
+            state.caseStudyAnswers.score = correctCount;
+
+            const fbBox = document.getElementById('cs-feedback-box');
+            fbBox.classList.remove('hidden');
+
+            if (correctCount >= 8) {
+                fbBox.className = "p-5 rounded-2xl space-y-3 text-xs bg-emerald-50 border border-emerald-200 text-emerald-900";
+                fbBox.innerHTML = `
+                    <h4 class="font-bold text-sm font-rubik">🎉 Hasil Verifikasi: Sangat Akurat! (${correctCount} / 10 Isian Benar)</h4>
+                    <p>Perhitungan studi kelayakan usaha 'Warna Jabon' yang kamu susun sudah sangat tepat!</p>
+                `;
+            } else {
+                fbBox.className = "p-5 rounded-2xl space-y-3 text-xs bg-rose-50 border border-rose-200 text-rose-900";
+                fbBox.innerHTML = `
+                    <h4 class="font-bold text-sm font-rubik">⚠️ Hasil Verifikasi: Perlu Perbaikan (${correctCount} / 10 Isian Benar)</h4>
+                    <p>Kunci acuan: Total Investasi Rp 9.000.000; Penyusutan Rp 350.000; Biaya Tetap Rp 800.000; Biaya Variabel Rp 2.500.000; Operasional Rp 3.300.000; Penerimaan Rp 4.500.000; Keuntungan Rp 1.200.000; Payback 7,5 bulan (Skenario Laba Rp 980.000, Payback 9,18 bulan).</p>
+                `;
+            }
+
+            updateFinalSummaryReport();
+        }
+
+        // --- MODUL 7 REFLECTION & CSV EXPORT LOGIC ---
+        function initReflectionRating() {
+            const aspects = [
+                "Menjelaskan konsep & 4 perilaku wirausaha",
+                "Mengklasifikasikan produk & tingkat kebutuhan",
+                "Menyusun SWOT, 5W+1H, dan Porter",
+                "Menghitung penyusutan, laba, & payback period",
+                "Berkontribusi dalam diskusi kerja tim DKV"
+            ];
+
+            const container = document.getElementById('self-rating-container');
+            if (container) {
+                container.innerHTML = aspects.map((asp, i) => `
+                    <div class="bg-white p-3 rounded-lg border flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <span class="font-semibold text-gray-700">${i+1}. ${asp}</span>
+                        <div class="flex gap-3 font-bold text-xs">
+                            ${[1, 2, 3, 4].map(star => `
+                                <label class="flex items-center gap-1 cursor-pointer">
+                                    <input type="radio" name="star-${i}" value="${star}" ${star===4?'checked':''} onchange="state.reflection.scores[${i}]=${star}">
+                                    <span>${star}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function updateFinalSummaryReport() {
+            const quizScoreCount = state.quizAnswers.filter((a, i) => state.activeQuizQuestions[i] && a === state.activeQuizQuestions[i].ans).length;
+            document.getElementById('sum-quiz-score').innerText = `${quizScoreCount} / 10`;
+
+            const csScore = state.caseStudyAnswers.score || 0;
+            document.getElementById('sum-casestudy-score').innerText = `${csScore} / 10`;
+
+            const recomBox = document.getElementById('sum-recom-text');
+            const wrongTopics = [];
+            state.activeQuizQuestions.forEach((q, idx) => {
+                if (state.quizAnswers[idx] !== q.ans) wrongTopics.push(q.topic);
+            });
+
+            if (wrongTopics.length > 0) {
+                recomBox.innerText = `Topik yang disarankan untuk diulas kembali: ${[...new Set(wrongTopics)].join(', ')}.`;
+            } else {
+                recomBox.innerText = "Selamat! Semua konsep kuis dan studi kelayakan telah dikuasai dengan tuntas.";
+            }
+        }
+
+        // STRICT CSV EXPORT GENERATOR WITH BOM & SEMICOLONS
+        function downloadCSV() {
+            updateStudentIdentity();
+            const name = state.studentName;
+            const team = state.studentTeam;
+
+            if (!name || !team) {
+                alert("Peringatan: Silakan isi Nama Lengkap dan Nama Tim terlebih dahulu pada Modul 0 (Beranda) sebelum mengunduh file!");
+                goToModule(0);
+                return;
+            }
+
+            const today = new Date().toLocaleDateString('id-ID');
+
+            const qScores = state.activeQuizQuestions.map((q, i) => state.quizAnswers[i] === q.ans ? 1 : 0);
+            const totalQuizScore = qScores.reduce((a, b) => a + b, 0);
+            const csScore = state.caseStudyAnswers.score || 0;
+
+            const feeling = document.getElementById('refl-feeling').value;
+            const meaning = (document.getElementById('refl-meaningful').value || "").replace(/"/g, '""').replace(/\n/g, ' ');
+            const struggle = (document.getElementById('refl-struggle').value || "").replace(/"/g, '""').replace(/\n/g, ' ');
+            const commit = (document.getElementById('refl-commitment').value || "").replace(/"/g, '""').replace(/\n/g, ' ');
+
+            const decision = document.getElementById('cs-decision-select').value;
+            const reason = (document.getElementById('cs-reason-text').value || "").replace(/"/g, '""').replace(/\n/g, ' ');
+
+            const failedTopics = [];
+            state.activeQuizQuestions.forEach((q, idx) => {
+                if (state.quizAnswers[idx] !== q.ans) failedTopics.push(q.topic);
+            });
+            const topRecom = failedTopics.length > 0 ? [...new Set(failedTopics)].join(' | ') : 'Tidak Ada (Tuntas)';
+
+            // STRICT 27 HEADERS SPECIFICATION
+            const headers = [
+                "Nama", "Tim", "Tanggal", "Skor_Kuis_dari_10", 
+                "Soal1", "Soal2", "Soal3", "Soal4", "Soal5", "Soal6", "Soal7", "Soal8", "Soal9", "Soal10", 
+                "Skor_Studi_Kasus_dari_10", 
+                "Skala_Konsep_Wirausaha", "Skala_Klasifikasi_Produk", "Skala_SWOT_5W1H_Porter", "Skala_Hitung_Kelayakan", "Skala_Kerja_Tim", 
+                "Perasaan_Belajar", "Topik_Perlu_Diulang", 
+                "Keputusan_Studi_Kasus", "Alasan_Keputusan", 
+                "Hal_Paling_Bermakna", "Kesulitan_dan_Solusi", "Komitmen_Tindak_Lanjut"
+            ];
+
+            const row = [
+                `"${name}"`,
+                `"${team}"`,
+                `"${today}"`,
+                totalQuizScore,
+                ...qScores,
+                csScore,
+                state.reflection.scores[0],
+                state.reflection.scores[1],
+                state.reflection.scores[2],
+                state.reflection.scores[3],
+                state.reflection.scores[4],
+                `"${feeling}"`,
+                `"${topRecom}"`,
+                `"${decision}"`,
+                `"${reason}"`,
+                `"${meaning}"`,
+                `"${struggle}"`,
+                `"${commit}"`
+            ];
+
+            const csvContent = "\uFEFF" + headers.join(";") + "\n" + row.join(";");
+
+            const sanitizeName = (str) => str.replace(/[^a-zA-Z0-9]/g, '_');
+            const fileName = `Hasil_${sanitizeName(name)}_${sanitizeName(team)}.csv`;
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", fileName);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            alert('File sudah diunduh. Kirim file ini kepada gurumu.');
+        }
+
+        function copySummaryText() {
+            updateStudentIdentity();
+            const text = `LAPORAN PORTOFOLIO BELAJAR MPI KIK (SMKN 1 JABON)\nNama: ${state.studentName || '-'}\nTim: ${state.studentTeam || '-'}\nSkor Kuis: ${document.getElementById('sum-quiz-score').innerText}\nSkor Studi Kasus: ${document.getElementById('sum-casestudy-score').innerText}\nPerasaan: ${document.getElementById('refl-feeling').value}`;
+            
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            alert('Ringkasan teks berhasil disalin ke clipboard!');
+        }
+    </script>
+</body>
+</html>
