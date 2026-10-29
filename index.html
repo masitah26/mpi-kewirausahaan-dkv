@@ -230,8 +230,8 @@
                             <input type="text" id="input-student-name" placeholder="Masukkan nama lengkapmu" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandDark focus:outline-none text-sm font-semibold" oninput="updateStudentIdentity()">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-700 mb-1" for="input-student-team">Nama Tim / Kelompok *</label>
-                            <input type="text" id="input-student-team" placeholder="Contoh: Tim DKV Creative Studio" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandDark focus:outline-none text-sm font-semibold" oninput="updateStudentIdentity()">
+                            <label class="block text-xs font-bold text-gray-700 mb-1" for="input-student-team">Nomor Absen *</label>
+                            <input type="text" inputmode="numeric" maxlength="3" id="input-student-team" placeholder="Contoh: 12" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brandDark focus:outline-none text-sm font-semibold" oninput="updateStudentIdentity()">
                         </div>
                     </div>
 
@@ -248,6 +248,29 @@
                     <button onclick="goToModule(1)" class="w-full sm:w-auto px-8 py-3.5 bg-brandAccent text-brandText font-bold rounded-xl shadow-md hover:brightness-105 transition font-rubik text-lg">
                         Mulai Belajar Sekarang ➔
                     </button>
+                </div>
+
+                <!-- Panel Unduh Semua Hasil Kerja (1 File CSV) -->
+                <div class="no-print bg-white rounded-2xl p-6 shadow-sm border border-gray-200/80 text-left space-y-4">
+                    <div>
+                        <h3 class="font-bold text-brandDark font-rubik text-base">📦 Unduh Semua Hasil Kerja (1 File CSV)</h3>
+                        <p class="text-xs text-gray-600 mt-1">Semua jawaban yang sudah kamu simpan lewat tombol <strong>💾 Simpan Jawaban</strong> di tiap soal dikumpulkan dalam <strong>satu file CSV</strong>. Isi Nama &amp; Tim di atas lebih dulu.</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <button onclick="downloadAllCSV()" class="px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs font-rubik shadow flex items-center gap-2">
+                            <span>📥</span> Unduh Semua Hasil Kerja (1 File CSV)
+                        </button>
+                        <span class="text-xs text-gray-600 font-semibold">Jawaban tersimpan: <strong id="saved-counter" class="text-brandDark">0</strong> isian</span>
+                        <button onclick="clearSavedAnswers()" class="ml-auto px-3 py-2 bg-gray-100 hover:bg-rose-100 text-gray-600 hover:text-rose-700 font-bold rounded-lg text-[11px]">🗑️ Hapus jawaban tersimpan di perangkat ini</button>
+                    </div>
+                    <details class="bg-gray-50 border rounded-xl p-3">
+                        <summary class="font-bold text-brandDark font-rubik text-xs cursor-pointer">👩‍🏫 Khusus Guru: Gabungkan CSV Banyak Siswa Menjadi 1 File</summary>
+                        <div class="pt-3 space-y-2 text-xs text-gray-600">
+                            <p>Pilih semua file CSV hasil kerja siswa (format yang sama, hasil tombol unduh di Beranda), lalu klik gabungkan.</p>
+                            <input type="file" id="merge-csv-input" accept=".csv,text/csv" multiple class="block w-full text-xs">
+                            <button onclick="mergeCSVFiles()" class="px-4 py-2 bg-brandDark text-white font-bold rounded-lg text-xs font-rubik">🔗 Gabungkan &amp; Unduh 1 File CSV</button>
+                        </div>
+                    </details>
                 </div>
 
                 <!-- Modul Card Overview Grid -->
@@ -1156,7 +1179,7 @@
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                             <div><strong>Nama Siswa:</strong> <span id="sum-student-name">-</span></div>
-                            <div><strong>Nama Tim:</strong> <span id="sum-student-team">-</span></div>
+                            <div><strong>Nomor Absen:</strong> <span id="sum-student-team">-</span></div>
                             <div><strong>Skor Kuis Penguatan:</strong> <span id="sum-quiz-score" class="font-bold text-brandDark">0 / 10</span></div>
                             <div><strong>Skor Studi Kasus Akhir:</strong> <span id="sum-casestudy-score" class="font-bold text-brandDark">0 / 10</span></div>
                         </div>
@@ -1407,6 +1430,442 @@
             return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
         }
 
+        // =====================================================
+        // PENYIMPANAN JAWABAN PER SOAL + UNDUH SEMUA HASIL (1 CSV)
+        // =====================================================
+        const STORAGE_KEY = 'mpi_kik_jawaban_v1';
+        state.saved = {};
+        let ALL_SAVE_DEFS = [];
+
+        // Isian statis yang mendapat tombol "Simpan Jawaban" (label diambil dari <label for="id">)
+        const STATIC_SAVE_DEFS = [
+            { id: 'ref1', code: 'M1_2_REF1', modul: 1 },
+            { id: 'ref2', code: 'M1_2_REF2', modul: 1 },
+            { id: 'ref3', code: 'M1_2_REF3', modul: 1 },
+            { id: 'strat-so', code: 'M3C_2_STRAT_1SO', modul: 3, label: 'Strategi SO (Gunakan Kekuatan untuk Raih Peluang)' },
+            { id: 'strat-wo', code: 'M3C_2_STRAT_2WO', modul: 3, label: 'Strategi WO (Atasi Kelemahan demi Ambil Peluang)' },
+            { id: 'strat-st', code: 'M3C_2_STRAT_3ST', modul: 3, label: 'Strategi ST (Gunakan Kekuatan untuk Hadapi Ancaman)' },
+            { id: 'strat-wt', code: 'M3C_2_STRAT_4WT', modul: 3, label: 'Strategi WT (Minimalkan Kelemahan & Hindari Ancaman)' },
+            { id: 'w1', code: 'M3C_3_5W1H_1WHAT', modul: 3 },
+            { id: 'w2', code: 'M3C_3_5W1H_2WHY', modul: 3 },
+            { id: 'w3', code: 'M3C_3_5W1H_3WHEN', modul: 3 },
+            { id: 'w4', code: 'M3C_3_5W1H_4WHERE', modul: 3 },
+            { id: 'w5', code: 'M3C_3_5W1H_5WHO', modul: 3 },
+            { id: 'h1', code: 'M3C_3_5W1H_6HOW', modul: 3 },
+            { id: 'cs-swot-s', code: 'M6_1_SWOT_1S', modul: 6 },
+            { id: 'cs-swot-w', code: 'M6_1_SWOT_2W', modul: 6 },
+            { id: 'cs-swot-o', code: 'M6_1_SWOT_3O', modul: 6 },
+            { id: 'cs-swot-t', code: 'M6_1_SWOT_4T', modul: 6 },
+            { id: 'cs-calc-inv', code: 'M6_2_HITUNG_1INV', modul: 6, expected: 9000000 },
+            { id: 'cs-calc-peny', code: 'M6_2_HITUNG_2PENY', modul: 6, expected: 350000 },
+            { id: 'cs-calc-bt', code: 'M6_2_HITUNG_3BT', modul: 6, expected: 800000 },
+            { id: 'cs-calc-bv', code: 'M6_2_HITUNG_4BV', modul: 6, expected: 2500000 },
+            { id: 'cs-calc-op', code: 'M6_2_HITUNG_5OP', modul: 6, expected: 3300000 },
+            { id: 'cs-calc-pen', code: 'M6_2_HITUNG_6PEN', modul: 6, expected: 4500000 },
+            { id: 'cs-calc-laba', code: 'M6_2_HITUNG_7LABA', modul: 6, expected: 1200000 },
+            { id: 'cs-calc-payback', code: 'M6_2_HITUNG_8PAYBACK', modul: 6, expected: 7.5 },
+            { id: 'cs-scen-laba', code: 'M6_3_SKEN_1LABA', modul: 6, expected: 980000 },
+            { id: 'cs-scen-payback', code: 'M6_3_SKEN_2PAYBACK', modul: 6, expected: 9.18 },
+            { id: 'cs-decision-select', code: 'M6_4_KEPUTUSAN', modul: 6 },
+            { id: 'cs-reason-text', code: 'M6_5_ALASAN', modul: 6 },
+            { id: 'refl-feeling', code: 'M7_2_PERASAAN', modul: 7 },
+            { id: 'refl-meaningful', code: 'M7_3_BERMAKNA', modul: 7 },
+            { id: 'refl-struggle', code: 'M7_4_KESULITAN', modul: 7 },
+            { id: 'refl-commitment', code: 'M7_5_KOMITMEN', modul: 7 }
+        ];
+
+        function persistSaved() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify({ name: state.studentName, team: state.studentTeam, saved: state.saved }));
+            } catch (e) { /* penyimpanan lokal tidak tersedia */ }
+        }
+
+        function loadSaved() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) return;
+                const data = JSON.parse(raw);
+                state.saved = data.saved || {};
+                const n = document.getElementById('input-student-name');
+                const t = document.getElementById('input-student-team');
+                if (n && data.name) n.value = data.name;
+                if (t && data.team) t.value = data.team;
+                updateStudentIdentity();
+            } catch (e) { /* abaikan data rusak */ }
+        }
+
+        function saveAnswer(code, modul, label, answer, status, skor) {
+            state.saved[code] = {
+                modul: modul,
+                kode: code,
+                pertanyaan: label,
+                jawaban: String(answer),
+                status: status || 'Tersimpan',
+                skor: (skor === undefined ? '' : skor),
+                waktu: new Date().toLocaleString('id-ID')
+            };
+            persistSaved();
+            updateSavedCounter();
+        }
+
+        function updateSavedCounter() {
+            const el = document.getElementById('saved-counter');
+            if (el) el.innerText = Object.keys(state.saved).length;
+        }
+
+        function setSaveStatus(el, ok, msg) {
+            if (!el) return;
+            el.textContent = msg;
+            el.className = 'text-[11px] font-bold ' + (ok ? 'text-emerald-700' : 'text-rose-600');
+        }
+
+        function makeSaveRow(onClick, extraClass) {
+            const row = document.createElement('div');
+            row.className = 'save-row flex items-center gap-2 no-print ' + (extraClass === undefined ? 'mt-1' : extraClass);
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md text-[11px] font-bold';
+            btn.textContent = '💾 Simpan Jawaban';
+            const st = document.createElement('span');
+            st.className = 'text-[11px] font-bold';
+            row.append(btn, st);
+            btn.addEventListener('click', () => onClick(st));
+            return { row, st };
+        }
+
+        function getDefLabel(def, el) {
+            if (def.label) return def.label;
+            const lab = document.querySelector(`label[for="${def.id}"]`);
+            if (lab) return lab.textContent.replace(/\s+/g, ' ').trim().replace(/:$/, '');
+            const prev = el.previousElementSibling;
+            if (prev) return prev.textContent.replace(/\s+/g, ' ').trim();
+            return def.code;
+        }
+
+        function getDefValue(el) {
+            if (el.tagName === 'SELECT') {
+                if (!el.value) return '';
+                return el.options[el.selectedIndex].text.trim();
+            }
+            return (el.value || '').trim();
+        }
+
+        function saveField(def, el, st) {
+            const val = getDefValue(el);
+            if (!val) { setSaveStatus(st, false, 'Isi jawaban dulu'); return false; }
+            let status = 'Tersimpan', skor = '';
+            if (def.expected !== undefined && def.expected !== null && def.expected !== '') {
+                if (typeof def.expected === 'number') {
+                    const num = parseFloat(String(el.value).replace(',', '.'));
+                    const ok = !isNaN(num) && Math.abs(num - def.expected) <= def.expected * 0.015;
+                    status = ok ? 'Benar' : 'Perlu Diperbaiki'; skor = ok ? 1 : 0;
+                } else {
+                    const ok = el.value === def.expected;
+                    status = ok ? 'Benar' : 'Salah'; skor = ok ? 1 : 0;
+                }
+            }
+            saveAnswer(def.code, def.modul, getDefLabel(def, el), val, status, skor);
+            setSaveStatus(st, true, '✓ Tersimpan');
+            return true;
+        }
+
+        function injectSaveButtons() {
+            const defs = STATIC_SAVE_DEFS.map(d => ({ ...d }));
+
+            // Isian dinamis (aktivitas Modul 3): pasangan perilaku, Game 1, Game 2
+            const dyn = [
+                { sel: '[id^="match-opt-"]', prefix: 'match-opt-', code: n => 'M3A_COCOK' + (n + 1) },
+                { sel: '[id^="g1-item-"]', prefix: 'g1-item-', code: n => 'M3B_G1_' + (n + 1) },
+                { sel: '[id^="g2-item-"]', prefix: 'g2-item-', code: n => 'M3B_G2_' + (n + 1) }
+            ];
+            dyn.forEach(g => {
+                document.querySelectorAll(g.sel).forEach(el => {
+                    const n = parseInt(el.id.replace(g.prefix, ''), 10);
+                    const m = (el.getAttribute('onchange') || '').match(/,\s*'(.*)'\)\s*$/);
+                    const prev = el.previousElementSibling;
+                    defs.push({
+                        id: el.id, code: g.code(n), modul: 3,
+                        label: prev ? prev.textContent.replace(/\s+/g, ' ').trim() : el.id,
+                        expected: m ? m[1] : ''
+                    });
+                });
+            });
+
+            ALL_SAVE_DEFS = defs;
+
+            defs.forEach(def => {
+                const el = document.getElementById(def.id);
+                if (!el) return;
+                const { row, st } = makeSaveRow(s => saveField(def, el, s));
+                const parent = el.parentElement;
+                if (parent && parent.classList.contains('flex')) {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'flex flex-wrap items-center gap-2';
+                    parent.insertBefore(wrap, el);
+                    wrap.appendChild(el);
+                    row.classList.remove('mt-1');
+                    wrap.appendChild(row);
+                } else {
+                    el.insertAdjacentElement('afterend', row);
+                }
+
+                // Pulihkan jawaban yang sudah tersimpan
+                const rec = state.saved[def.code];
+                if (rec) {
+                    if (el.tagName === 'SELECT') {
+                        const opt = Array.from(el.options).find(o => o.text.trim() === rec.jawaban);
+                        if (opt) { el.value = opt.value; el.dispatchEvent(new Event('change')); }
+                    } else {
+                        el.value = rec.jawaban;
+                    }
+                    setSaveStatus(st, true, '✓ Tersimpan');
+                }
+                const markDirty = () => {
+                    const r = state.saved[def.code];
+                    if (r && r.jawaban !== getDefValue(el)) { st.textContent = '● Perubahan belum disimpan'; st.className = 'text-[11px] font-bold text-amber-600'; }
+                    else if (!r) { st.textContent = ''; }
+                };
+                el.addEventListener('input', markDirty);
+                el.addEventListener('change', markDirty);
+            });
+
+            // --- Modul 1: pilihan apersepsi ---
+            const fb = document.getElementById('apperception-feedback');
+            if (fb) {
+                const { row, st } = makeSaveRow(s => saveApperception(s), 'mt-2');
+                fb.insertAdjacentElement('afterend', row);
+                if (state.saved['M1_1_PILIHAN']) {
+                    setSaveStatus(st, true, '✓ Tersimpan');
+                    const m = state.saved['M1_1_PILIHAN'].jawaban.match(/^\(([ABC])\)/);
+                    if (m) checkApperception(m[1]);
+                }
+            }
+
+            // --- Modul 3: SWOT Builder ---
+            const swotBtn = document.querySelector('button[onclick="generateSwotStrategyMatrix()"]');
+            if (swotBtn) {
+                const { row, st } = makeSaveRow(s => saveSwotBuilder(s), 'mb-2');
+                swotBtn.insertAdjacentElement('beforebegin', row);
+                let any = false;
+                ['S', 'W', 'O', 'T'].forEach((t, i) => {
+                    const rec = state.saved['M3C_1_SWOT_' + (i + 1) + t];
+                    if (rec && rec.jawaban) { state.swotData[t] = rec.jawaban.split(' | '); renderSwotList(t); any = true; }
+                });
+                if (any) setSaveStatus(st, true, '✓ Tersimpan');
+                if (['SO', 'WO', 'ST', 'WT'].some((k, i) => state.saved['M3C_2_STRAT_' + (i + 1) + k])) generateSwotStrategyMatrix();
+            }
+
+            // --- Modul 4: simulasi Mode A & kalkulator Mode C ---
+            const interp = document.getElementById('interpretation-box-A');
+            if (interp) {
+                const { row } = makeSaveRow(s => saveLabA(s), 'mt-2');
+                interp.insertAdjacentElement('afterend', row);
+            }
+            const outC = document.getElementById('custom-output-box');
+            if (outC) {
+                const { row } = makeSaveRow(s => saveLabC(s), 'mt-2');
+                outC.appendChild(row);
+            }
+
+            // --- Modul 7: skala pemahaman mandiri ---
+            const rating = document.getElementById('self-rating-container');
+            if (rating) {
+                const { row, st } = makeSaveRow(s => saveSelfRating(s), 'mt-2');
+                rating.insertAdjacentElement('afterend', row);
+                let any = false;
+                for (let i = 0; i < 5; i++) {
+                    const rec = state.saved['M7_1_SKALA_' + (i + 1)];
+                    if (rec) {
+                        const v = parseInt(rec.jawaban, 10);
+                        const radio = document.querySelector(`input[name="star-${i}"][value="${v}"]`);
+                        if (radio) { radio.checked = true; state.reflection.scores[i] = v; any = true; }
+                    }
+                }
+                if (any) setSaveStatus(st, true, '✓ Tersimpan');
+            }
+        }
+
+        function saveApperception(st) {
+            const choice = state.apperceptionChoice;
+            if (!choice) { setSaveStatus(st, false, 'Pilih jawaban dulu'); return; }
+            const idx = { A: 0, B: 1, C: 2 }[choice];
+            const btns = document.querySelectorAll('#apperception-options button');
+            const text = btns[idx].innerText.replace(/\s+/g, ' ').trim();
+            saveAnswer('M1_1_PILIHAN', 1, 'Jika kamu berada di posisi Dita/Raka, apa tindakan pertamamu?', text, choice === 'B' ? 'Benar' : 'Kurang Tepat', choice === 'B' ? 1 : 0);
+            setSaveStatus(st, true, '✓ Tersimpan');
+        }
+
+        function saveDiagnostic(silent) {
+            const statusEl = document.getElementById('save-status-diag');
+            const sel = state.initialAssessmentAnswers[diagIdx];
+            if (sel === null || sel === undefined) {
+                if (!silent) setSaveStatus(statusEl, false, 'Pilih jawaban dulu');
+                return false;
+            }
+            const q = diagnosticQuestions[diagIdx];
+            const ok = sel === q.ans;
+            saveAnswer('M2_S' + (diagIdx + 1), 2, q.q, q.opts[sel], ok ? 'Paham' : 'Perlu Diperkuat', ok ? 1 : 0);
+            setSaveStatus(statusEl, true, '✓ Tersimpan');
+            return true;
+        }
+
+        function saveQuiz(silent) {
+            const statusEl = document.getElementById('save-status-quiz');
+            const idx = state.quizCurrentIdx;
+            const sel = state.quizAnswers[idx];
+            if (sel === null || sel === undefined) {
+                if (!silent) setSaveStatus(statusEl, false, 'Pilih jawaban dulu');
+                return false;
+            }
+            const q = state.activeQuizQuestions[idx];
+            const ok = sel === q.ans;
+            saveAnswer('M5_S' + String(q.poolNo).padStart(2, '0'), 5, `[${q.topic}] ${q.q}`, q.opts[sel], ok ? 'Benar' : 'Salah', ok ? 1 : 0);
+            setSaveStatus(statusEl, true, '✓ Tersimpan');
+            return true;
+        }
+
+        function saveSwotBuilder(st) {
+            const names = { S: 'Strength (Kekuatan)', W: 'Weakness (Kelemahan)', O: 'Opportunity (Peluang)', T: 'Threat (Ancaman)' };
+            const order = ['S', 'W', 'O', 'T'];
+            if (order.every(t => state.swotData[t].length === 0)) { setSaveStatus(st, false, 'Tambahkan poin SWOT dulu'); return; }
+            order.forEach((t, i) => {
+                const code = 'M3C_1_SWOT_' + (i + 1) + t;
+                if (state.swotData[t].length) saveAnswer(code, 3, 'SWOT Builder - ' + names[t], state.swotData[t].join(' | '));
+                else if (state.saved[code]) { delete state.saved[code]; persistSaved(); updateSavedCounter(); }
+            });
+            setSaveStatus(st, true, '✓ Tersimpan');
+        }
+
+        function saveLabA(st) {
+            const p = id => document.getElementById(id).innerText.trim();
+            const jawab = `Harga soto ${p('lbl-soto-price')}; minuman ${p('lbl-drink-price')}; ${p('lbl-portion')}/hari; bahan harian ${p('lbl-bahan-harian')}; sewa/tahun ${p('lbl-sewa-tahun')}; gaji/bulan ${p('lbl-gaji')} => Investasi ${p('resA-investasi')}; Operasional/bln ${p('resA-operasional')}; Keuntungan/bln ${p('resA-laba')}; Payback ${p('resA-payback')}`;
+            saveAnswer('M4_A_SIMULASI', 4, 'Hasil simulasi Mode A: Soto Ayam Ibu Winne', jawab);
+            setSaveStatus(st, true, '✓ Tersimpan');
+        }
+
+        function saveLabC(st) {
+            calculateCustomModeC();
+            const p = id => document.getElementById(id).innerText.trim();
+            const eq = customData.equip.map(e => `${e.name} (${formatRupiah(e.price)}, ${e.life} bln)`).join(', ');
+            const fx = customData.fixed.map(f => `${f.desc} ${formatRupiah(f.val)}`).join(', ');
+            const vr = customData.var.map(v => `${v.desc} ${formatRupiah(v.val)}`).join(', ');
+            const rv = customData.rev.map(r => `${r.name} ${formatRupiah(r.price)} x ${r.qty}`).join(', ');
+            const jawab = `Peralatan: ${eq} | Biaya tetap: ${fx} | Biaya variabel: ${vr} | Penjualan: ${rv} => Investasi ${p('c-res-inv')}; Operasional ${p('c-res-op')}; Keuntungan ${p('c-res-laba')}; Payback ${p('c-res-payback')}`;
+            saveAnswer('M4_C_KALKULATOR', 4, 'Hasil kalkulator kelayakan usaha timku (Mode C)', jawab);
+            setSaveStatus(st, true, '✓ Tersimpan');
+        }
+
+        function saveSelfRating(st) {
+            const spans = document.querySelectorAll('#self-rating-container > div > span');
+            for (let i = 0; i < 5; i++) {
+                const label = spans[i] ? spans[i].textContent.replace(/\s+/g, ' ').trim() : 'Aspek ' + (i + 1);
+                saveAnswer('M7_1_SKALA_' + (i + 1), 7, 'Skala pemahaman mandiri (1-4): ' + label, state.reflection.scores[i], 'Tersimpan', state.reflection.scores[i]);
+            }
+            setSaveStatus(st, true, '✓ Tersimpan');
+        }
+
+        function countUnsavedFields() {
+            let n = 0;
+            ALL_SAVE_DEFS.forEach(def => {
+                const el = document.getElementById(def.id);
+                if (!el) return;
+                const val = getDefValue(el);
+                const rec = state.saved[def.code];
+                if (val && (!rec || rec.jawaban !== val)) n++;
+            });
+            return n;
+        }
+
+        // --- Ekspor CSV ---
+        function csvCell(v) {
+            let s = String(v === undefined || v === null ? '' : v).replace(/\r?\n/g, ' ').trim();
+            if (/^[=+\-@]/.test(s) && isNaN(Number(s))) s = "'" + s; // cegah formula injection di Excel
+            return '"' + s.replace(/"/g, '""') + '"';
+        }
+
+        function triggerCsvDownload(content, fileName) {
+            const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', fileName);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+
+        function downloadAllCSV() {
+            updateStudentIdentity();
+            const name = state.studentName;
+            const team = state.studentTeam;
+            if (!name || !team) {
+                alert('Isi Nama Lengkap dan Nomor Absen terlebih dahulu pada kolom Identitas Belajar Siswa di Beranda!');
+                goToModule(0);
+                const n = document.getElementById('input-student-name');
+                if (n) n.focus();
+                return;
+            }
+            const records = Object.values(state.saved);
+            if (records.length === 0) {
+                alert('Belum ada jawaban yang disimpan. Tekan tombol "💾 Simpan Jawaban" pada setiap soal terlebih dahulu.');
+                return;
+            }
+            const unsaved = countUnsavedFields();
+            if (unsaved > 0 && !confirm(`Ada ${unsaved} isian yang belum disimpan dan TIDAK akan ikut terunduh. Tetap unduh sekarang?`)) return;
+
+            records.sort((a, b) => (a.modul - b.modul) || a.kode.localeCompare(b.kode, 'id', { numeric: true }));
+            const today = new Date().toLocaleDateString('id-ID');
+            const headers = ['Nama', 'No_Absen', 'Tanggal_Unduh', 'Modul', 'Kode_Soal', 'Pertanyaan_Aktivitas', 'Jawaban', 'Status', 'Skor', 'Waktu_Simpan'];
+            const rows = records.map(r => [
+                csvCell(name), csvCell(team), csvCell(today), csvCell('Modul ' + r.modul),
+                csvCell(r.kode), csvCell(r.pertanyaan), csvCell(r.jawaban), csvCell(r.status), csvCell(r.skor), csvCell(r.waktu)
+            ].join(';'));
+
+            const csvContent = '﻿' + headers.join(';') + '\n' + rows.join('\n');
+            const sanitizeName = (str) => str.replace(/[^a-zA-Z0-9]/g, '_');
+            triggerCsvDownload(csvContent, `HasilKerja_${sanitizeName(name)}_Absen${sanitizeName(team)}.csv`);
+            alert(`File berisi ${records.length} jawaban sudah diunduh. Kirim file ini kepada gurumu.`);
+        }
+
+        async function mergeCSVFiles() {
+            const input = document.getElementById('merge-csv-input');
+            const files = Array.from((input && input.files) || []);
+            if (files.length < 2) { alert('Pilih minimal 2 file CSV hasil kerja siswa untuk digabungkan.'); return; }
+
+            let header = null;
+            const rows = [];
+            const skipped = [];
+            let used = 0;
+            for (const f of files) {
+                try {
+                    const text = (await f.text()).replace(/^﻿/, '');
+                    const lines = text.split(/\r?\n/).filter(l => l.trim() !== '');
+                    if (lines.length < 2) { skipped.push(f.name + ' (kosong)'); continue; }
+                    const h = lines[0].trim();
+                    if (header === null) header = h;
+                    if (h !== header) { skipped.push(f.name + ' (format kolom berbeda)'); continue; }
+                    for (let i = 1; i < lines.length; i++) rows.push(lines[i]);
+                    used++;
+                } catch (e) {
+                    skipped.push(f.name + ' (gagal dibaca)');
+                }
+            }
+            if (used === 0) { alert('Tidak ada file yang dapat digabungkan.'); return; }
+
+            triggerCsvDownload('﻿' + header + '\n' + rows.join('\n'), 'Rekap_Hasil_Kerja_Semua_Siswa.csv');
+            let msg = `${used} file digabung menjadi 1 file CSV (${rows.length} baris data).`;
+            if (skipped.length) msg += '\n\nDilewati:\n- ' + skipped.join('\n- ');
+            alert(msg);
+        }
+
+        function clearSavedAnswers() {
+            if (!confirm('Hapus SEMUA jawaban tersimpan di perangkat ini? Pastikan kamu sudah mengunduh CSV-nya. Tindakan ini tidak bisa dibatalkan.')) return;
+            try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+            state.saved = {};
+            location.reload();
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             setLogo(LOGO_SRC);
             renderNavigation();
@@ -1415,6 +1874,9 @@
             initLabSimulation();
             setupRandomQuiz();
             initReflectionRating();
+            loadSaved();
+            injectSaveButtons();
+            updateSavedCounter();
             updateOverallProgress();
             
             const today = new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -1429,6 +1891,7 @@
             document.getElementById('header-user-badge').style.display = state.studentName ? 'inline-block' : 'none';
             document.getElementById('sum-student-name').innerText = state.studentName || '-';
             document.getElementById('sum-student-team').innerText = state.studentTeam || '-';
+            persistSaved();
         }
 
         function renderNavigation() {
@@ -1478,6 +1941,7 @@
 
         // --- MODUL 1 APPERCEPTION LOGIC ---
         function checkApperception(choice) {
+            state.apperceptionChoice = choice;
             const fbBox = document.getElementById('apperception-feedback');
             fbBox.classList.remove('hidden', 'bg-emerald-50', 'bg-rose-50', 'bg-amber-50', 'text-emerald-900', 'text-rose-900', 'text-amber-900');
 
@@ -1572,6 +2036,15 @@
                                 </button>
                             `).join('')}
                         </div>
+                        ${(() => {
+                            const cur = state.initialAssessmentAnswers[diagIdx];
+                            const rec = state.saved['M2_S' + (diagIdx + 1)];
+                            const isSaved = cur !== null && rec && rec.jawaban === item.opts[cur];
+                            return `<div class="flex items-center gap-2 pt-1 no-print">
+                                <button type="button" onclick="saveDiagnostic()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md text-xs font-bold">💾 Simpan Jawaban</button>
+                                <span id="save-status-diag" class="text-[11px] font-bold ${isSaved ? 'text-emerald-700' : 'text-amber-600'}">${isSaved ? '✓ Tersimpan' : (cur !== null ? '● Belum disimpan' : '')}</span>
+                            </div>`;
+                        })()}
                     </div>
                 `;
             } else {
@@ -1604,6 +2077,7 @@
                 alert("Pilihlah salah satu jawaban sebelum melanjutkan!");
                 return;
             }
+            saveDiagnostic(true);
             diagIdx++;
             renderDiagnosticQuestion();
         }
@@ -2002,7 +2476,7 @@
         // --- RANDOMIZED QUIZ LOGIC (PICK 10 OF 20) ---
         function setupRandomQuiz() {
             // Shuffle 20 pool questions
-            const shuffledPool = [...fullQuizQuestionPool].sort(() => Math.random() - 0.5);
+            const shuffledPool = fullQuizQuestionPool.map((q, i) => ({ ...q, poolNo: i + 1 })).sort(() => Math.random() - 0.5);
             // Select first 10
             const selected10 = shuffledPool.slice(0, 10);
 
@@ -2017,7 +2491,8 @@
                     opts: optionsObj.map(o => o.text),
                     ans: newAnsIdx,
                     exp: q.exp,
-                    topic: q.topic
+                    topic: q.topic,
+                    poolNo: q.poolNo
                 };
             });
 
@@ -2052,6 +2527,14 @@
                                 </button>
                             `).join('')}
                         </div>
+                        ${(() => {
+                            const rec = state.saved['M5_S' + String(item.poolNo).padStart(2, '0')];
+                            const isSaved = userAns !== null && rec && rec.jawaban === item.opts[userAns];
+                            return `<div class="flex items-center gap-2 no-print">
+                                <button type="button" onclick="saveQuiz()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md text-xs font-bold">💾 Simpan Jawaban</button>
+                                <span id="save-status-quiz" class="text-[11px] font-bold ${isSaved ? 'text-emerald-700' : 'text-amber-600'}">${isSaved ? '✓ Tersimpan' : (userAns !== null ? '● Belum disimpan' : '')}</span>
+                            </div>`;
+                        })()}
                         ${userAns !== null ? `
                             <div class="p-4 rounded-xl text-xs leading-relaxed font-semibold mt-3 ${userAns === item.ans ? 'bg-emerald-50 text-emerald-900 border border-emerald-200' : 'bg-rose-50 text-rose-900 border border-rose-200'}">
                                 ${userAns === item.ans ? '✅ Benar!' : '❌ Kurang Tepat!'} ${item.exp}
@@ -2076,6 +2559,7 @@
                 });
 
                 document.getElementById('quiz-final-score').innerText = `${scoreCount} / 10`;
+                saveAnswer('M5_SKOR_TOTAL', 5, 'Skor total kuis penguatan', `${scoreCount} / 10`, scoreCount >= 8 ? 'Tuntas' : 'Perlu Penguatan', scoreCount);
                 const fbText = document.getElementById('quiz-feedback-text');
                 if (scoreCount >= 8) {
                     fbText.innerText = "Sangat Luar Biasa! Kamu menguasai analisis kelayakan & konsep wirausaha DKV dengan mantap!";
@@ -2110,6 +2594,7 @@
                 alert("Pilihlah salah satu jawaban sebelum melanjutkan!");
                 return;
             }
+            saveQuiz(true);
             state.quizCurrentIdx++;
             renderQuizQuestion();
         }
@@ -2174,6 +2659,7 @@
 
             const correctCount = checks.filter(Boolean).length;
             state.caseStudyAnswers.score = correctCount;
+            saveAnswer('M6_9_SKOR', 6, 'Skor verifikasi studi kasus "Warna Jabon"', `${correctCount} / 10`, correctCount >= 8 ? 'Akurat' : 'Perlu Perbaikan', correctCount);
 
             const fbBox = document.getElementById('cs-feedback-box');
             fbBox.classList.remove('hidden');
@@ -2250,7 +2736,7 @@
             const team = state.studentTeam;
 
             if (!name || !team) {
-                alert("Peringatan: Silakan isi Nama Lengkap dan Nama Tim terlebih dahulu pada Modul 0 (Beranda) sebelum mengunduh file!");
+                alert("Peringatan: Silakan isi Nama Lengkap dan Nomor Absen terlebih dahulu pada Modul 0 (Beranda) sebelum mengunduh file!");
                 goToModule(0);
                 return;
             }
@@ -2277,7 +2763,7 @@
 
             // STRICT 27 HEADERS SPECIFICATION
             const headers = [
-                "Nama", "Tim", "Tanggal", "Skor_Kuis_dari_10", 
+                "Nama", "No_Absen", "Tanggal", "Skor_Kuis_dari_10", 
                 "Soal1", "Soal2", "Soal3", "Soal4", "Soal5", "Soal6", "Soal7", "Soal8", "Soal9", "Soal10", 
                 "Skor_Studi_Kasus_dari_10", 
                 "Skala_Konsep_Wirausaha", "Skala_Klasifikasi_Produk", "Skala_SWOT_5W1H_Porter", "Skala_Hitung_Kelayakan", "Skala_Kerja_Tim", 
@@ -2310,7 +2796,7 @@
             const csvContent = "\uFEFF" + headers.join(";") + "\n" + row.join(";");
 
             const sanitizeName = (str) => str.replace(/[^a-zA-Z0-9]/g, '_');
-            const fileName = `Hasil_${sanitizeName(name)}_${sanitizeName(team)}.csv`;
+            const fileName = `Hasil_${sanitizeName(name)}_Absen${sanitizeName(team)}.csv`;
 
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement("a");
@@ -2326,7 +2812,7 @@
 
         function copySummaryText() {
             updateStudentIdentity();
-            const text = `LAPORAN PORTOFOLIO BELAJAR MPI KIK (SMKN 1 JABON)\nNama: ${state.studentName || '-'}\nTim: ${state.studentTeam || '-'}\nSkor Kuis: ${document.getElementById('sum-quiz-score').innerText}\nSkor Studi Kasus: ${document.getElementById('sum-casestudy-score').innerText}\nPerasaan: ${document.getElementById('refl-feeling').value}`;
+            const text = `LAPORAN PORTOFOLIO BELAJAR MPI KIK (SMKN 1 JABON)\nNama: ${state.studentName || '-'}\nNomor Absen: ${state.studentTeam || '-'}\nSkor Kuis: ${document.getElementById('sum-quiz-score').innerText}\nSkor Studi Kasus: ${document.getElementById('sum-casestudy-score').innerText}\nPerasaan: ${document.getElementById('refl-feeling').value}`;
             
             const dummy = document.createElement("textarea");
             document.body.appendChild(dummy);
